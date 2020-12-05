@@ -35,7 +35,7 @@ int main()
     vector<Point>::iterator iter;
     iter = max_element(v.begin(), v.end(), Compare);
     cout << "max: "; iter->Print();
-    cout << "max: "; *(iter).Print();
+    cout << "max: "; (*iter).Print();
     
     return 0;
 }
