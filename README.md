@@ -19,3 +19,8 @@ STL에서 제공되는, 검색이나 정렬 같은 활동을 수행하는 알고
 * [numeric algorithms](https://github.com/GyeongHoKim/algorithm/tree/main/numericAlgorithms/)
 
 총 7가지가 있다.
+
+## Algospot
+
+알고리즘 공부를 종만북으로 하기 때문에 알고스팟을 이용하기로 한다.
+[알고스팟](https://algospot.com)에 대한 나의 풀이는 [여기](https://github.com/GyeongHoKim/algorithm/algospot/)
