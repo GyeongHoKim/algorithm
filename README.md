@@ -23,8 +23,8 @@ STL에서 제공되는, 검색이나 정렬 같은 활동을 수행하는 알고
 ## Algospot
 
 알고리즘 공부를 종만북으로 하기 때문에 알고스팟을 이용하기로 한다.
-[알고스팟](https://algospot.com)에 대한 나의 풀이는 [여기](https://github.com/GyeongHoKim/algorithm/algospot/)
+[알고스팟](https://algospot.com)에 대한 나의 풀이는 [여기](https://github.com/GyeongHoKim/algorithm/tree/main/algospot/)
 
 ## BaekJoon
 
-컴퓨터공학 전공하는 애들이 이 사이트를 애용하는 것 같다. 그럼 나도 [여기](https://github.com/GyeongHoKim/algorithm/boj/)에 백준저지를 올려보자.
+컴퓨터공학 전공하는 애들이 이 사이트를 애용하는 것 같다. 그럼 나도 [여기](https://github.com/GyeongHoKim/algorithm/tree/main/boj/)에 백준저지를 올려보자.
