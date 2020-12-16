@@ -28,3 +28,59 @@ STL에서 제공되는, 검색이나 정렬 같은 활동을 수행하는 알고
 ## BaekJoon
 
 컴퓨터공학 전공하는 애들이 이 사이트를 애용하는 것 같다. 그럼 나도 [여기](https://github.com/GyeongHoKim/algorithm/tree/main/boj/)에 백준저지를 올려보자.
+
+## 스터디 진행
+
+온라인 스터디를 진행해 보자. 군대 특성상 컴퓨터를 충분히 쓸 수 있는 토요일과 일요일에 문제를 푼다고 할 때, 일주일에 2개씩 푼다고 하자.
+
+1. 매주 최소 2개씩 문제 풀이 마크다운 작성 후 업로드(개인별 로컬에서 작업 후 main branch에 merge)
+	* [문제풀이 양식]()
+	* [커밋 메시지 컨벤션]()
+	* 너무 쉬운 문제일 경우 마크다운 작성하지말고 그냥 소스 업로드
+2. 매주 일요일마다 코드리뷰 진행, slack 또는 issue & pull request 이용
+
+## Git 저장소 이용하는 방법
+
+- 저장소 : https://https://github.com/GyeongHoKim/algorithm
+
+### 폴더 설명
+
+- contents: 공동폴더. 알고리즘 관련 이론을 정리해서 업로드하는 폴더
+- docs: 공동폴더. 이론 이외의 문서를 업로드하는 폴더
+- source: 개인 폴더. 필요한 개인폴더를 생성하고 알고리즘 풀이를 업로드하는 폴더
+
+<br>
+
+### GitBash 명령어 사용 방법
+
+- [원격저장소의 브랜치를 생성하는 방법](https://github.com/TheCopiens/algorithm-study/blob/master/docs/github/howToCreate_branch.md#%EC%9B%90%EA%B2%A9%EC%A0%80%EC%9E%A5%EC%86%8C%EC%9D%98-%EB%B8%8C%EB%9E%9C%EC%B9%98%EB%A5%BC-%EC%83%9D%EC%84%B1%ED%95%98%EB%8A%94-%EB%B0%A9%EB%B2%95)
+- [원격저장소의 브랜치를 로컬로 가져오는 방법](https://github.com/TheCopiens/algorithm-study/blob/master/docs/github/bring_remote_branch.md)
+- [fork한 저장소 최신으로 동기화하는 방법](https://github.com/TheCopiens/algorithm-study/blob/master/docs/github/update_forkedRepo_from_originRepo.md#fork-%ED%95%9C-repository-%EC%B5%9C%EC%8B%A0%EC%9C%BC%EB%A1%9C-%EB%8F%99%EA%B8%B0%ED%99%94-%ED%95%98%EB%8A%94-%EB%B0%A9%EB%B2%95)
+
+#### 원격저장소 로컬에 가져오기
+
+<code> git clone https://https://github.com/GyeongHoKim/algorithm.git </code>
+
+#### 로컬에서 개인 브랜치 생성하기
+
+local workspace에 'ohhako'라는 이름으로 브랜치 생성<br>
+<code> git branch ohhako </code>
+
+#### 로컬에서 브랜치 작업후 원격저장소에 반영하기
+
+로컬 브랜치가 있는 폴더에서 개인작업을 마친 후 공동 저장소에 반영한다.
+
+1. <code> **git checkout ohhako** </code> - main에서 ohhako 브랜치로 전환
+2. workspace에서 작업
+3. <code> **git commit -m "message"**</code>
+4. <code> **git push origin ohhako** </code> - 원격저장소 ohhako 브랜치에 반영
+5. <code> **git checkout main** </code> - 브랜치 전환
+6. <code> **git pull** </code> - 원격저장소 main의 최신 정보를 로컬에 업데이트 시키기
+7. <code> **git merge ohhako** </code> - main에 ohhako 브랜치 작업 반영
+8. <code> **git push origin main** </code> - 원격저장소 main에 반영
+
+## <br><br>
+
+### 이 글은 아래 사이트를 참고해 작성되었습니다.
+
+https://github.com/TheCopiens/algorithm-study
