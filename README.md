@@ -1,8 +1,8 @@
 # algorithm
 
-알고리즘 연습을 위한 리포. C++을 주로 사용할 것이기 때문에 STL의 알고리즘 컨테이너에 대한 공부도 진행.
+알고리즘 연습을 위한 리포.
 
-## STL 알고리즘 컨테이너
+## C++ STL 알고리즘 컨테이너
 
 표준 템플릿 라이브러리(STL: Standard Template Library)는 C++을 위한 라이브러리로서 C++ 표준 라이브러리의 많은 부분에 영향을 끼쳤다. 이것은 알고리즘, 컨테이너, 함수자 그리고 반복자라고 불리는 네가지의 구성 요소를 제공한다.
 
@@ -10,13 +10,13 @@ STL에서 제공되는, 검색이나 정렬 같은 활동을 수행하는 알고
 
 [위키](https://ko.wikipedia.org/wiki/%ED%91%9C%EC%A4%80_%ED%85%9C%ED%94%8C%EB%A6%BF_%EB%9D%BC%EC%9D%B4%EB%B8%8C%EB%9F%AC%EB%A6%AC)
 
-* [nonmodifying algorithms](https://github.com/GyeongHoKim/algorithm/tree/main/nonmodifyingAlgorithms)
-* [modifying algorithms](https://github.com/GyeongHoKim/algorithm/tree/main/modifyingAlgorithms/)
-* [removing algorithms](https://github.com/GyeongHoKim/algorithm/tree/main/removingAlgorithms/)
-* [mutating algorithms](https://github.com/GyeongHoKim/algorithm/tree/main/mutatingAlgorithms/)
-* [sorting algorithms](https://github.com/GyeongHoKim/algorithm/tree/main/sortingAlgorithms/)
-* [sorted range algorithms](https://github.com/GyeongHoKim/algorithm/tree/main/sortedRangeAlgorithms/)
-* [numeric algorithms](https://github.com/GyeongHoKim/algorithm/tree/main/numericAlgorithms/)
+* [nonmodifying algorithms](https://github.com/GyeongHoKim/algorithm/tree/main/constents/nonmodifyingAlgorithms)
+* [modifying algorithms](https://github.com/GyeongHoKim/algorithm/tree/main/constents/modifyingAlgorithms/)
+* [removing algorithms](https://github.com/GyeongHoKim/algorithm/tree/main/constents/removingAlgorithms/)
+* [mutating algorithms](https://github.com/GyeongHoKim/algorithm/tree/main/constents/mutatingAlgorithms/)
+* [sorting algorithms](https://github.com/GyeongHoKim/algorithm/tree/main/constents/sortingAlgorithms/)
+* [sorted range algorithms](https://github.com/GyeongHoKim/algorithm/tree/main/constents/sortedRangeAlgorithms/)
+* [numeric algorithms](https://github.com/GyeongHoKim/algorithm/tree/main/constents/numericAlgorithms/)
 
 총 7가지가 있다.
 
@@ -27,7 +27,7 @@ STL에서 제공되는, 검색이나 정렬 같은 활동을 수행하는 알고
 
 ## BaekJoon
 
-컴퓨터공학 전공하는 애들이 이 사이트를 애용하는 것 같다. 그럼 나도 [여기](https://github.com/GyeongHoKim/algorithm/tree/main/boj/)에 백준저지를 올려보자.
+컴퓨터공학 전공하는 애들이 [이 사이트](https://www.acmicpc.net/step)를 애용하는 것 같다. 그럼 나도 [여기](https://github.com/GyeongHoKim/algorithm/tree/main/boj/)에 백준저지를 올려보자.
 
 ## 스터디 진행
 
