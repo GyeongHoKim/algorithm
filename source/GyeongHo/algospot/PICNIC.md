@@ -45,22 +45,56 @@ subcase의 경우, "짝을 짓지 못한 학생들을 짝짓는 방법의 수를
 subcase 경우의 수를 얻기 위해 재귀함수 내부에 경우의 수를 담는 변수를 생성하고 기저사례를 만족했을 때마다 그 변수에 1을 더하면 된다.
 기저사례를 확인하기 위해, 학생들의 수만큼의 bool을 담는 배열을 만들어 그 배열의 모든 원소가 true일 때 1을 반환하게 한다.
 
+시간 제한이 1초이므로 $O(n^4)$까지가 최선이다.
+
+또, 애를 먹었던 부분 중 하나인데 모든 학생들이 짝을 짓게 된 배열이 되든 짓지 못하는 배열이 되든간에 바로 직전의 시도로 돌아가서 첫 번째 친구는 그대로 두고 두 번째 친구를 다음 순서로 넘겨야 하는데
+이건 재귀호출하는 부분의 바로 뒷 부분에 false로 되돌리면 다음 예시를 찾도록 넘길 수가 있다.
+
 ``` c++
 #include <iostream>
 using namespace std;
 
+
 bool areFriends[10][10];
 
-int count(bool* studentList, n);
+int count(bool* studentList, int n)
+{
+	int cases = 0;
+	int index = -1;
+	for(int i = 0; i < n; ++i) {
+		if(!studentList[i]) {
+			index = i;
+			break;
+		}
+	}
+	
+	if(index == -1) return ++cases;
+	
+	for(int j = index + 1; j < n; ++j) {
+		if(areFriends[index][j] && !studentList[j]) {
+			studentList[index] = true;
+			studentList[j] = true;
+			cases += count(studentList, n);
+			studentList[index] = false;
+			studentList[j] = false;
+		}
+	}
+	
+	return cases;
+}
 
 int main()
 {
 	int C, n, m;
-	for(int i = 0; i < 10; ++i) areFriends[i][i] = false;
 	cin >> C;
 	
 	while(C--) {
 		cin >> n >> m;
+		
+		for(int i = 0; i < 10; ++i)
+			for(int j = 0; j < 10; ++j)
+				areFriends[i][j] = false;
+		
 		bool* studentList = new bool[n];
 		for(int i = 0; i < n; ++i) studentList[i] = false;
 		
@@ -71,10 +105,11 @@ int main()
 			areFriends[j][i] = true;
 		}
 		
-		cout << count(studentList) << endl;
+		cout << count(studentList, n) << endl;
 		
 		delete[] studentList;
 	}
 	
+	return 0;
 }
 ```
