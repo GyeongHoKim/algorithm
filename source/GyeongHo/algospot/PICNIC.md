@@ -40,14 +40,41 @@
 2. 기저 사례
 
 subcase의 경우, "짝을 짓지 못한 학생들을 짝짓는 방법의 수를 계산"이 되겠고
-기저사례의 경우, "
+기저사례의 경우, "모든 학생들이 짝을 지었을 때"가 되겠다.
+
+subcase 경우의 수를 얻기 위해 재귀함수 내부에 경우의 수를 담는 변수를 생성하고 기저사례를 만족했을 때마다 그 변수에 1을 더하면 된다.
+기저사례를 확인하기 위해, 학생들의 수만큼의 bool을 담는 배열을 만들어 그 배열의 모든 원소가 true일 때 1을 반환하게 한다.
 
 ``` c++
 #include <iostream>
 using namespace std;
 
+bool areFriends[10][10];
+
+int count(bool* studentList, n);
+
 int main()
 {
-
+	int C, n, m;
+	for(int i = 0; i < 10; ++i) areFriends[i][i] = false;
+	cin >> C;
+	
+	while(C--) {
+		cin >> n >> m;
+		bool* studentList = new bool[n];
+		for(int i = 0; i < n; ++i) studentList[i] = false;
+		
+		while(m--) {
+			int i, j;
+			cin >> i >> j;
+			areFriends[i][j] = true;
+			areFriends[j][i] = true;
+		}
+		
+		cout << count(studentList) << endl;
+		
+		delete[] studentList;
+	}
+	
 }
 ```
