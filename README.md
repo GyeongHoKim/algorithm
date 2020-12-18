@@ -28,7 +28,7 @@ STL에서 제공되는, 검색이나 정렬 같은 활동을 수행하는 알고
 본 스터디의 [Slack Channel](https://join.slack.com/t/302global/shared_invite/zt-k8k7z3o2-95OKOfBe8j1R8jpwAkbprw)
 
 1. 매주 최소 2개씩 문제 풀이 마크다운 작성 후 업로드(개인별 로컬에서 작업 후 main branch에 merge)
-	* 문제풀이 양식 추후 업데이트
+	* [문제풀이 양식](https://github.com/GyeongHoKim/algorithm/blob/main/source/GyeongHo/algospot/PICNIC.md)
 	* [커밋 메시지 컨벤션](https://github.com/GyeongHoKim/algorithm/wiki/Message-Convention)
 	* 너무 쉬운 문제일 경우 마크다운 작성하지말고 그냥 소스 업로드
 2. 매주 일요일마다 코드리뷰 진행, slack 또는 issue & pull request 이용
