@@ -1,4 +1,9 @@
+# web IDE settings #
+
 goorm.manifest
-bin/
 .theia/
 .vscode/
+
+# binary files #
+
+./source/bin/
