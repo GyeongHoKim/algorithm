@@ -20,17 +20,6 @@ STL에서 제공되는, 검색이나 정렬 같은 활동을 수행하는 알고
 
 총 7가지가 있다.
 
-
-<<<<<<< HEAD
-=======
-알고리즘 공부를 종만북으로 하기 때문에 알고스팟을 이용하기로 한다.
-[알고스팟](https://algospot.com)에 대한 나의 풀이는 [여기](https://github.com/GyeongHoKim/algorithm/tree/main/algospot/)
-
-## BaekJoon
-
-컴퓨터공학 전공하는 애들이 [이 사이트](https://www.acmicpc.net/step)를 애용하는 것 같다. 그럼 나도 [여기](https://github.com/GyeongHoKim/algorithm/tree/main/boj/)에 백준저지를 올려보자.
-
->>>>>>> 6eceec877b62e16152124d8f7c7716249cd0ee70
 # 스터디 진행
 
 온라인 스터디를 진행해 보자. 군대 특성상 컴퓨터를 충분히 쓸 수 있는 토요일과 일요일에 문제를 푼다고 할 때, 일주일에 2개씩 푼다고 하자.
@@ -61,11 +50,7 @@ STL에서 제공되는, 검색이나 정렬 같은 활동을 수행하는 알고
 ### 본 스터디에서의 Git 이용 방식 신송
 
 4번을 읽을 때 참고.
-<<<<<<< HEAD
 ![git](https://raw.githubusercontent.com/GyeongHoKim/algorithm/main/docs/img/git.png)
-=======
-![git](https://github.com/GyeongHoKim/algorithm/tree/main/docs/img/git.png)
->>>>>>> 6eceec877b62e16152124d8f7c7716249cd0ee70
 
 1. (선택사항)원격저장소를 fork
 	-[본 사이트](https://https://github.com/GyeongHoKim/algorithm) 우측 상단의 Fork 버튼 클릭(명령어 없음)
