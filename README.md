@@ -25,6 +25,7 @@ STL에서 제공되는, 검색이나 정렬 같은 활동을 수행하는 알고
 # 스터디 진행
 
 온라인 스터디를 진행해 보자. 군대 특성상 컴퓨터를 충분히 쓸 수 있는 토요일과 일요일에 문제를 푼다고 할 때, 일주일에 2개씩 푼다고 하자.
+본 스터디의 [Slack Channel](https://join.slack.com/t/302global/shared_invite/zt-k8k7z3o2-95OKOfBe8j1R8jpwAkbprw)
 
 1. 매주 최소 2개씩 문제 풀이 마크다운 작성 후 업로드(개인별 로컬에서 작업 후 main branch에 merge)
 	* 문제풀이 양식 추후 업데이트
