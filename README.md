@@ -10,13 +10,13 @@ STL에서 제공되는, 검색이나 정렬 같은 활동을 수행하는 알고
 
 [위키](https://ko.wikipedia.org/wiki/%ED%91%9C%EC%A4%80_%ED%85%9C%ED%94%8C%EB%A6%BF_%EB%9D%BC%EC%9D%B4%EB%B8%8C%EB%9F%AC%EB%A6%AC)
 
-* [nonmodifying algorithms](https://github.com/GyeongHoKim/algorithm/tree/main/constents/nonmodifyingAlgorithms)
-* [modifying algorithms](https://github.com/GyeongHoKim/algorithm/tree/main/constents/modifyingAlgorithms/)
-* [removing algorithms](https://github.com/GyeongHoKim/algorithm/tree/main/constents/removingAlgorithms/)
-* [mutating algorithms](https://github.com/GyeongHoKim/algorithm/tree/main/constents/mutatingAlgorithms/)
-* [sorting algorithms](https://github.com/GyeongHoKim/algorithm/tree/main/constents/sortingAlgorithms/)
-* [sorted range algorithms](https://github.com/GyeongHoKim/algorithm/tree/main/constents/sortedRangeAlgorithms/)
-* [numeric algorithms](https://github.com/GyeongHoKim/algorithm/tree/main/constents/numericAlgorithms/)
+* [nonmodifying algorithms](https://github.com/GyeongHoKim/algorithm/tree/main/contents/nonmodifyingAlgorithms)
+* [modifying algorithms](https://github.com/GyeongHoKim/algorithm/tree/main/contents/modifyingAlgorithms/)
+* [removing algorithms](https://github.com/GyeongHoKim/algorithm/tree/main/contents/removingAlgorithms/)
+* [mutating algorithms](https://github.com/GyeongHoKim/algorithm/tree/main/contents/mutatingAlgorithms/)
+* [sorting algorithms](https://github.com/GyeongHoKim/algorithm/tree/main/contents/sortingAlgorithms/)
+* [sorted range algorithms](https://github.com/GyeongHoKim/algorithm/tree/main/contents/sortedRangeAlgorithms/)
+* [numeric algorithms](https://github.com/GyeongHoKim/algorithm/tree/main/contents/numericAlgorithms/)
 
 총 7가지가 있다.
 
