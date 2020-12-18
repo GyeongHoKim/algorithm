@@ -55,28 +55,62 @@ STL에서 제공되는, 검색이나 정렬 같은 활동을 수행하는 알고
 4번을 읽을 때 참고.
 ![git](https://raw.githubusercontent.com/GyeongHoKim/algorithm/main/docs/img/git.png)
 
-1. (선택사항)원격저장소를 fork
-	-[본 사이트](https://https://github.com/GyeongHoKim/algorithm) 우측 상단의 Fork 버튼 클릭(명령어 없음)
-2. 원격저장소를 로컬로 가져오기
-	- 사지방 프린터 출력용 PC 옆자리의 Ubuntu WSL(git 초기설정이 내걸로 돼있어서 사용자 추가 후 사용해야 함)
-	- 또는 [구름IDE](https://goorm.io), [GitPod](https://gitpod.io) 등의 웹 IDE 이용
-	- `$git clone https://https://github.com/GyeongHoKim/algorithm.git`
-3. (선택사항)로컬에서 개인 브랜치 생성
-	- `$git branch GyeongHo` (로컬 워크스페이스에 경호라는 이름으로 브랜치 생성)
-	- clone이후 디폴트로 main 브랜치. 브랜치를 변경하려면 `$git checkout GyeongHo`
-4. 로컬에서 파일 생성 등의 작업 후 원격저장소(remote repo)에 반영
-	- 위의 그림 참조
-	- `$git pull origin main` 하여 remote repo와 local repo 동기화(pull 명령어는 fetch와 merge를 합쳐놓은 명령어이므로 현재 branch가 무엇인지 꼭 확인해야 함)
-	- 알고리즘 문제에 대한 풀이를 작성, 가령 **백준** 사이트의 **7777**번 문제 풀이를 **7777.md** 파일에 담음.
-	- `$git add 7777.md` 하여 staging area에 추가
-	- `$git commit -m "ADD BOJ 7777"` 혹은 `$git commit` 후 나타나는 문서 편집기에 "ADD BOJ 7777"과 Content(가령 "BP solution")를 적고 local repo에 커밋(커밋 메시지는 [commit message convention](https://github.com/GyeongHoKim/algorithm/wiki/Message-Convention)참고)
-	- `$git push origin main` 혹은 (선택사항)`git push origin GyeongHo`하여 remote repo에 업로드
-5. (선택사항)4번문항 도중 파일을 고치고 싶으면
-	- add 후 갑자기 파일을 고치고 싶을 때: `$git reset HEAD 7777.md` (staging area에서 내려감)
-	- commit 후 갑자기 파일을 고치고 싶을 때: `$git commit --amend` (바로 직전의 commit에 합쳐서 같은 commit으로 취급)
-	- 롤백 상황이 벌어졌다 : Integration-Manager(병장 김경호)에게 문의 후 revert
-6. (선택사항)fork한 remote repo를 main remote repo에 반영(pull-request)
-	- 자신의 원격저장소 github 사이트에서 pull-request 버튼 클릭
-	- 매주 일요일에 pull-request 확인 후 Integration-Manager이 승인
+### 1번 (선택사항)원격저장소를 fork
+
+[본 사이트](https://https://github.com/GyeongHoKim/algorithm) 우측 상단의 Fork 버튼 클릭(명령어 없음)
+
+### 2번 원격저장소를 로컬로 가져오기
+
+사지방 프린터 출력용 PC 옆자리의 Ubuntu WSL(git 초기설정이 내걸로 돼있어서 사용자 추가 후 사용해야 함)
+또는 [구름IDE](https://goorm.io), [GitPod](https://gitpod.io) 등의 웹 IDE 이용
+
+``` shell
+$git clone https://https://github.com/GyeongHoKim/algorithm.git
+```
+
+### 3번 (선택사항)로컬에서 개인 브랜치 생성
+
+``` shell
+$git branch GyeongHo
+```
+
+로컬 워크스페이스에 경호라는 이름으로 브랜치 생성
+clone이후 디폴트로 main 브랜치. 브랜치를 변경하려면
+
+``` shell
+$git checkout GyeongHo
+```
+
+### 4번 로컬에서 파일 생성 등의 작업 후 원격저장소(remote repo)에 반영
+
+위의 그림 참조
+
+``` shell
+$git pull origin main
+```
+
+하여 remote repo와 local repo 동기화(pull 명령어는 fetch와 merge를 합쳐놓은 명령어이므로 현재 branch가 무엇인지 꼭 확인해야 함)
+알고리즘 문제에 대한 풀이를 작성, 가령 **백준** 사이트의 **7777**번 문제 풀이를 **7777.md** 파일에 담음.
+
+``` shell
+$git add 7777.md //staging area에 추가
+```
+
+``` shell
+$git commit -m "ADD BOJ 7777"
+```
+
+혹은 `$git commit` 후 나타나는 문서 편집기에 "ADD BOJ 7777"과 Content(가령 "BP solution")를 적고 local repo에 커밋(커밋 메시지는 [commit message convention](https://github.com/GyeongHoKim/algorithm/wiki/Message-Convention)참고)
+
+`$git push origin main` 혹은 (선택사항)`git push origin GyeongHo`하여 remote repo에 업로드
+
+### 5번 (선택사항)4번문항 도중 파일을 고치고 싶으면
+
+add 후 갑자기 파일을 고치고 싶을 때: `$git reset HEAD 7777.md` (staging area에서 내려감)
+commit 후 갑자기 파일을 고치고 싶을 때: `$git commit --amend` (바로 직전의 commit에 합쳐서 같은 commit으로 취급)
+롤백 상황이 벌어졌다 : Integration-Manager(병장 김경호)에게 문의 후 revert
 	
-모르는 문제가 생긴다면 언제든지 문제 공유(issue 등록 혹은 slack, kakaotalk 등의 메신저 이용)
+### 6번 (선택사항)fork한 remote repo를 main remote repo에 반영(pull-request)
+
+자신의 원격저장소 github 사이트에서 pull-request 버튼 클릭
+매주 일요일에 pull-request 확인 후 Integration-Manager이 승인
