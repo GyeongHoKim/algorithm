@@ -7,3 +7,4 @@ goorm.manifest
 # binary files #
 
 ./source/bin/
+../../bin/
