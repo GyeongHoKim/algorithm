@@ -106,9 +106,9 @@ $git commit -m "ADD BOJ 7777"
 
 ### 5번 (선택사항)4번문항 도중 파일을 고치고 싶으면
 
-add 후 갑자기 파일을 고치고 싶을 때: `$git reset HEAD 7777.md` (staging area에서 내려감)
-commit 후 갑자기 파일을 고치고 싶을 때: `$git commit --amend` (바로 직전의 commit에 합쳐서 같은 commit으로 취급)
-롤백 상황이 벌어졌다 : Integration-Manager(병장 김경호)에게 문의 후 revert
+add 후 갑자기 파일을 고치고 싶을 때: `$git reset HEAD 7777.md` (staging area에서 내려감)  
+commit 후 갑자기 파일을 고치고 싶을 때: `$git commit --amend` (바로 직전의 commit에 합쳐서 같은 commit으로 취급)  
+롤백 상황이 벌어졌다 : Integration-Manager(병장 김경호)에게 문의 후 revert  
 	
 ### 6번 (선택사항)fork한 remote repo를 main remote repo에 반영(pull-request)
 
