@@ -54,7 +54,10 @@ int main()
 		for(int i = 0; i < 16; ++i)
 			cin >> clocks[i];
 		
-		cout << solve(clocks, 0) << endl;
+		int times = solve(clocks, 0);
+		if(times == INF) times = -1;
+		
+		cout << times << endl;
 	}
 	
 	return 0;
