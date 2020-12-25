@@ -19,13 +19,14 @@ int main()
 	int C;
 	cin >> C;
 	while(C--) {
+		memset(cache, -1, sizeof(cache));
 		cin >> n;
 		for(int i = 0; i < n; ++i)
 			for(int j = 0; j < n; ++j)
 				cin >> board[i][j];
 
-		if(jump2(0, 0)) cout << "YES";
-		else cout << "NO";
+		if(jump2(0, 0)) cout << "YES" << endl;
+		else cout << "NO" << endl;
 	}
 
 	return 0;
