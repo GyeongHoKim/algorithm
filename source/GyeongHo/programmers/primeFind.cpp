@@ -4,39 +4,44 @@
 
 using namespace std;
 
-int solution(string numbers) {
-    int answer = 0;
-    vector<int> numbersV;
-    vector<int> answers;
+bool chk(int n)
+{
+    if(n < 2) return false;
+    for(int i = 2; i*i < n; ++i)
+        if(n % i == 0) return false;
+	return true;
+}
+
+void permutationN(string numbers, vector<int>& ans)
+{
+    vector<int> v;
+    for(int i = 0; i < numbers.size(); ++i)
+		v.push_back(numbers[i] - '0');
     
-    //여기서부터 소수리스트 만들기, 소수면 true 아니면 false
-    vector<bool> prime(100000000,true);
-    prime[0] = prime[1] = false;
-    for(int i = 2; i < 100000000; ++i)
-        if(prime[i])
-            for(int j = i; j < 100000000; j *= j)
-                prime[j] = false;
+    sort(v.begin(), v.end());
     
-    //여기서부터 종이조각으로 순열만들어서 모든 경우의 수 리스트 만들기
-    for(string::size_type i = 0; i < numbers.size(); ++i)
-        numbersV.push_back(numbers[i] - '0');
-    
-    sort(numbersV.begin(), numbersV.end());
     do {
-        for(vector<int>::size_type i = 0; i < numbersV.size(); ++i) {
-            int temp = 0;
-            for(vector<int>::size_type j = 0; j < i; ++j) {
-                temp += (temp * 10) + numbersV[j];
-                answers.push_back(temp);
+        for (int i = 0; i <= v.size(); i++) {
+            int tmp = 0;
+            for (int j = 0; j < i; j++) {
+                tmp = (tmp * 10) + v[j];
+                ans.push_back(tmp);
             }
         }
-    } while(next_permutation(numbersV.begin(), numbersV.end()));
+    } while(next_permutation(v.begin(), v.end()));
     
-    sort(answers.begin(),answers.end());
-    answers.erase(unique(answers.begin(), answers.end()), answers.end());
+    sort(ans.begin(), ans.end());
+    ans.erase(unique(ans.begin(), ans.end()), ans.end());
+}
+
+int solution(string numbers) {
+    int answer = 0;
+    vector<int> answers;
     
-    for(vector<int>::size_type i = 0; i < answers.size(); ++i)
-        if(prime[answers[i]]) answer += 1;
+    permutationN(numbers, answers);
+    
+    for(vector<int>::iterator iter = answers.begin(); iter < answers.end(); ++iter)
+		if(chk(*iter)) answer++;
     
     return answer;
 }
