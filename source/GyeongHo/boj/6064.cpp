@@ -13,28 +13,27 @@ int LCM(int M, int N)
 	return mul / M;
 }
 
+// 인덱스 구하는 루프문 하나 구하고 인덱스 구한 다음에는 M씩 점프. 그 점프하는 루프에서 y가 나머지로 나오거나 나누어떨어지는 경우를 찾으면 됨
+
 int solution(int M, int N, int x, int y)
 {
-	vector<int> traverseList;
 	int total = LCM(M, N);
-	for(int i = 1; i <= total; ++i) {
+	int index;
+	
+	for(index = 1; index <= total; ++index) {
 		if(M == x) {
-			if(i % M == 0)
-				traverseList.push_back(i);
-		} else {
-			if(i % M == x)
-				traverseList.push_back(i);
+			if(index % M == 0) break;
+		}
+		else {
+			if(index % M == x) break;
 		}
 	}
 	
-	for(vector<int>::iterator iter = traverseList.begin(); iter < traverseList.end(); ++iter) {
+	for(int i = index; i <= total; i+= M) {
 		if(N == y) {
-			if(*iter % N == 0)
-				return *iter;
-		}
-		else {
-			if(*iter % N == y)
-				return *iter;
+			if(i % N == 0) return i;
+		} else {
+			if(i % N == y) return i;
 		}
 	}
 	
