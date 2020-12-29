@@ -16,22 +16,26 @@ int LCM(int M, int N)
 int solution(int M, int N, int x, int y)
 {
 	vector<int> traverseList;
+	int total = LCM(M, N);
 	for(int i = 1; i <= total; ++i) {
-		if(M == x)
+		if(M == x) {
 			if(i % M == 0)
 				traverseList.push_back(i);
-		else
+		} else {
 			if(i % M == x)
 				traverseList.push_back(i);
+		}
 	}
 	
 	for(vector<int>::iterator iter = traverseList.begin(); iter < traverseList.end(); ++iter) {
-		if(N == y)
+		if(N == y) {
 			if(*iter % N == 0)
 				return *iter;
-		else
+		}
+		else {
 			if(*iter % N == y)
 				return *iter;
+		}
 	}
 	
 	return -1;
