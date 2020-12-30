@@ -2,7 +2,10 @@
 #include <vector>
 using namespace std;
 
-void permutation(int M, int N, vector<int>& v, bool *chosen)
+vector<int> v;
+bool chosen[9] = {false};
+
+void permutation(int M, int N)
 {
 	if(N == 0) {
 		for(vector<int>::iterator iter = v.begin(); iter < v.end(); ++iter) {
@@ -18,7 +21,7 @@ void permutation(int M, int N, vector<int>& v, bool *chosen)
 		if(!chosen[i]) {
 			chosen[i] = true;
 			v.push_back(i);
-			permutation(M, N - 1, v, chosen);
+			permutation(M, N - 1);
 			chosen[i] = false;
 			v.pop_back();
 		}
@@ -30,11 +33,9 @@ void permutation(int M, int N, vector<int>& v, bool *chosen)
 int main()
 {
 	int M, N;
-	vector<int> v;
-	bool chosen[9] = {false};
 
 	cin >> M >> N;
-	permutation(M, N, v, chosen);
+	permutation(M, N);
 	
 	return 0;
 }
