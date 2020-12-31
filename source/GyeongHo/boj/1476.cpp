@@ -3,15 +3,8 @@ using namespace std;
 
 int solution(int E, int S, int M)
 {
-	int e = 0, s = 0, m = 0;
-	for(int i = 1; i < 7981; ++i) {
-		++e; ++s; ++m;
-		if(e > 15) e = 1;
-		if(s > 28) s = 1;
-		if(m > 19) m = 1;
-
-		if(e == E && s == S && m == M) return i;
-	}
+	for(int i = 1; i < 7981; ++i)
+		if((i - 1) % 15 == E && (i - 1) % 28 == S && (i - 1) % 19 == M) return i;
 	return -1;
 }
 
