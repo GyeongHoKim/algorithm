@@ -60,19 +60,15 @@ void bruteForce(int N)
 
 int main()
 {
-	int C,N;
-	cin >> C;
+	int N;
 	cin >> N;
 
-	while(C--) {
-		for(int i = 0; i < N; ++i)
-			for(int j = 0; j < N; ++j)
-				cin >> table[i][j];
+	for(int i = 0; i < N; ++i)
+		for(int j = 0; j < N; ++j)
+			cin >> table[i][j];
 
-		bruteForce(N);
-		
-		cout << maxCount << endl;
-	}
+	bruteForce(N);
+	cout << maxCount << endl;
 
 	return 0;
 }
