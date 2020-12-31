@@ -24,7 +24,7 @@ int solution(int M, int N, int x, int y)
 		if((index - 1) % M + 1 == x) break;
 	
 	for(int i = index; i <= total; i+= M)
-		if((i - 1) % N + 1 == y) break;
+		if((i - 1) % N + 1 == y) return  i;
 	
 	return -1;
 }
