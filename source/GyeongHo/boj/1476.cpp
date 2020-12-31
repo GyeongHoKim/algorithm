@@ -4,7 +4,7 @@ using namespace std;
 int solution(int E, int S, int M)
 {
 	for(int i = 1; i < 7981; ++i)
-		if((i - 1) % 15 == E && (i - 1) % 28 == S && (i - 1) % 19 == M) return i;
+		if((i - 1) % 15 + 1 == E && (i - 1) % 28 + 1 == S && (i - 1) % 19 + 1 == M) return i;
 	return -1;
 }
 
