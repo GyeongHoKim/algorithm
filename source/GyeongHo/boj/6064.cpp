@@ -20,22 +20,11 @@ int solution(int M, int N, int x, int y)
 	int total = LCM(M, N);
 	int index;
 	
-	for(index = 1; index <= total; ++index) {
-		if(M == x) {
-			if(index % M == 0) break;
-		}
-		else {
-			if(index % M == x) break;
-		}
-	}
+	for(index = 1; index <= total; ++index)
+		if((index - 1) % M + 1 == x) break;
 	
-	for(int i = index; i <= total; i+= M) {
-		if(N == y) {
-			if(i % N == 0) return i;
-		} else {
-			if(i % N == y) return i;
-		}
-	}
+	for(int i = index; i <= total; i+= M)
+		if((i - 1) % N + 1 == y) break;
 	
 	return -1;
 }
