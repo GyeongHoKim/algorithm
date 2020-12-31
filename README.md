@@ -27,10 +27,10 @@ STL에서 제공되는, 검색이나 정렬 같은 활동을 수행하는 알고
 온라인 스터디를 진행해 보자. 군대 특성상 컴퓨터를 충분히 쓸 수 있는 토요일과 일요일에 문제를 푼다고 할 때, 일주일에 2개씩 푼다고 하자.
 본 스터디의 [Slack Channel](https://join.slack.com/t/302global/shared_invite/zt-k8k7z3o2-95OKOfBe8j1R8jpwAkbprw)
 
-1. 매주 최소 2개씩 문제 풀이 마크다운 작성 후 업로드(개인별 로컬에서 작업 후 main branch에 merge)
+1. 매주 일요일에 주제를 정하고 그에 맞는 문제 3가지를 뽑아 다음주 토요일까지 푼다
 	* [문제풀이 양식](https://github.com/GyeongHoKim/algorithm/blob/main/source/GyeongHo/algospot/PICNIC.md)
 	* [커밋 메시지 컨벤션](https://github.com/GyeongHoKim/algorithm/wiki/Message-Convention)
-	* 너무 쉬운 문제일 경우 마크다운 작성하지말고 그냥 소스 업로드
+	* 발표를 진행하는 3가지 문제에 대해서만 마크다운으로 풀이 작성, 웬만하면 다 작성하는 것이 좋으나 귀찮으면 하지마셈
 2. 매주 일요일마다 코드리뷰 진행, slack 또는 issue & pull request 이용
 
 ## Git 저장소 이용하는 방식 신송(Git 워크플로)
@@ -65,7 +65,7 @@ STL에서 제공되는, 검색이나 정렬 같은 활동을 수행하는 알고
 또는 [구름IDE](https://goorm.io), [GitPod](https://gitpod.io) 등의 웹 IDE 이용
 
 ``` shell
-$git clone https://https://github.com/GyeongHoKim/algorithm.git
+$git clone https://github.com/GyeongHoKim/algorithm.git
 ```
 
 ### 3번 (선택사항)로컬에서 개인 브랜치 생성
@@ -114,3 +114,4 @@ commit 후 갑자기 파일을 고치고 싶을 때: `$git commit --amend` (바�
 
 자신의 원격저장소 github 사이트에서 pull-request 버튼 클릭
 매주 일요일에 pull-request 확인 후 Integration-Manager이 승인
+생각해보니까, 다들 master권한을 가지고 있어서 이게 의미가 없네. 자기가 pull-request하고 자기가 승인을 할 수가 있어
