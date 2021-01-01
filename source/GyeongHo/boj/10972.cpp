@@ -11,7 +11,7 @@ int main()
 	for(int i = 0; i < N; ++i)
 		cin >> arr[i];
 
-	if(next_permutation(arr, arr + 4))
+	if(next_permutation(arr, arr + N))
 		for(int i = 0; i < N; ++i)
 			cout << arr[i] << ' ';
 	else
