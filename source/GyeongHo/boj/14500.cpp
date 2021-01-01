@@ -21,7 +21,7 @@ void solution(int four, int sum, int y, int x)
 		if(ny < 0 || nx < 0 || ny >= N || nx >= M) continue;
 		if(TFboard[ny][nx] == false) {
 			TFboard[ny][nx] = true;
-			solution(four - 1; sum + board[ny][nx], ny, nx);
+			solution(four - 1, sum + board[ny][nx], ny, nx);
 			TFboard[ny][nx] = false;
 		}
 	}
@@ -36,7 +36,7 @@ void fuckU(int y, int x) {
 	}
 	//ㅏ
 	if(y + 2 < N && x + 1 < M) {
-		sum = board[y][x] + board[y + 1][x] board[y + 2][x] + board[y + 1][x + 1];
+		sum = board[y][x] + board[y + 1][x] + board[y + 2][x] + board[y + 1][x + 1];
 		MAX = MAX < sum ? sum : MAX;
 	}
 	//ㅜ
