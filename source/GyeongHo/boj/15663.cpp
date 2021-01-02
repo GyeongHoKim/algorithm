@@ -3,7 +3,7 @@
 #include <algorithm>
 using namespace std;
 
-//자기자신을 빼면서 중복되는 수는 빼줘야 함
+//자기자신을 빼면서 중복되는 수는 빼주되 N에서 제외시키지 않아야 함
 
 vector<int> v;
 vector<int> arr;
@@ -41,10 +41,7 @@ int main()
 	}
 
 	sort(arr.begin(), arr.end());
-
-	arr.erase(unique(arr.begin(), arr.end()), arr.end());
-
-	permutation(arr.size(), M);
+	permutation(N, M);
 
 	return 0;
 }
