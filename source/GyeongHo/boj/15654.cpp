@@ -28,6 +28,9 @@ void permutation(int N, int M)
 
 int main()
 {
+	//ios::sync_with_stdio(false);
+	//cin.tie(NULL);
+
 	int N, M;
 	cin >> N >> M;
 	for(int i = 0; i < N; ++i)
