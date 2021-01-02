@@ -3,27 +3,31 @@
 #include <algorithm>
 using namespace std;
 
-bool chosen[8] = {false};
+vector<int> v;
+int arr[8];
+bool visited[8] = {false};
 
-void permutation(int N, int M, const vector<int>& v)
+void permutation(int N, int M)
 {
 	if(M == 0) {
-		for(int i = 0; i < N; ++i) {
-			if(chosen[i])
-				cout << v[i] << ' ';
-		}
+		for(vector<int>::const_iterator iter = v.begin(); iter < v.end(); ++iter)
+			cout << *iter << ' ';
 		cout << "\n";
 		return;
 	}
 
-	for(int i = 0; i < N; ++i) {
-		if(chosen[i]) continue;
-		chosen[i] = true;
-		permutation(N, M - 1, v);
-		chosen[i] = false;
-	}
+	int index;
+	for(index = N; index >= 0; --index)
+		if(visited[index]) break;
 
-	return;
+	for(int i = index + 1; i < N; ++i) {
+		if(visited[i]) continue;
+		v.push_back(arr[i]);
+		visited[i] = true;
+		permutation(N, M - 1);
+		v.pop_back();
+		visited[i] = false;
+	}
 }
 
 int main()
@@ -33,14 +37,12 @@ int main()
 
 	int N, M;
 	cin >> N >> M;
-	vector<int> v(N);
-
 	for(int i = 0; i < N; ++i)
-		cin >> v[i];
+		cin >> arr[i];
 
-	sort(v.begin(), v.end());
+	sort(arr, arr + N);
 
-	permutation(N, M, v);
-	
+	permutation(N, M);
+
 	return 0;
 }
