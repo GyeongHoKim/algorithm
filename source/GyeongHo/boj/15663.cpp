@@ -9,20 +9,22 @@ vector<int> v;
 vector<int> arr;
 bool visited[8] = {false};
 
-void permutation(int N, int M)
+void permutation(int N, int M, int cnt)
 {
-	if(M == 0) {
+	if(cnt == M) {
 		for(vector<int>::const_iterator iter = v.begin(); iter < v.end(); ++iter)
 			cout << *iter << ' ';
 		cout << "\n";
 		return;
 	}
 
+	int prev = 0; // 각 경우에서 첫 번째의 경우는 제외
 	for(int i = 0; i < N; ++i) {
-		if(visited[i]) continue;
+		if(visited[i] || prev == arr[i]) continue;
 		visited[i] = true;
 		v.push_back(arr[i]);
-		permutation(N, M - 1);
+		prev = v[cnt];
+		permutation(N, M, cnt + 1);
 		visited[i] = false;
 		v.pop_back();
 	}
@@ -41,7 +43,7 @@ int main()
 	}
 
 	sort(arr.begin(), arr.end());
-	permutation(N, M);
+	permutation(N, M, 0);
 
 	return 0;
 }
