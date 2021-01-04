@@ -2,42 +2,39 @@
 using namespace std;
 
 int W[10][10];
-int list[10];
-int N, MIN = 1234567890;
-bool visit[10] = {false};
+bool visit[10];
+int N, MIN = 987654321;
 
-void whereToGo(int cnt)
+void costLow(int start, int loc, int sum, int cnt)
 {
-	int cost = 0;
-	int tmp =0;
-	if(cnt == N) {
-		MIN = min(MIN, cost);
+	if(cnt == N && start == loc) {
+		if(MIN > sum) MIN = sum;
 		return;
 	}
 
-	int prev = -1;
 	for(int i = 0; i < N; ++i) {
-		if(visit[i]) continue;
-		if(prev > -1) {
-			tmp = W[prev][list[i]];
-			cost += tmp;
-		}
-		visit[i] = true;
-		prev = list[i];
-		whereToGo(cnt + 1);
-		cost -= tmp;
-		visit[i] = false;
+		if(W[loc][i] == 0) continue;
+
+		if(visit[loc]) continue;
+		visit[loc] = true;
+		sum += W[loc][i];
+
+		if(sum <= MIN) costLow(start, i, sum, cnt + 1);
+
+		visit[loc] = false;
+		sum -= W[loc][i];
 	}
 }
 
 int main()
 {
 	cin >> N;
-	for(int i = 0; i < N; ++i) {
+	for(int i = 0; i < N; ++i)
 		for(int j = 0; j < N; ++j)
 			cin >> W[i][j];
-		list[i] = i;
-	}
+
+	for(int i = 0; i < N; ++i)
+		costLow(i, 0, 0, 0);
 
 	cout << MIN;
 	return 0;
