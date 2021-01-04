@@ -1,36 +1,44 @@
 #include <iostream>
-#include <algorithm>
 using namespace std;
 
 int W[10][10];
-int arr[10] = {-1};
+int list[10];
+int N, MIN = 1234567890;
+bool visit[10] = {false};
 
-int lowCost(int N)
+void whereToGo(int cnt)
 {
-	int MIN = 10000000;
 	int cost = 0;
-	sort(arr, arr + N);
-	do {
-		for(int i = 0; i < N - 1; ++i) {
-			cost += W[arr[i]][arr[i + 1]];
-		}
+	int tmp =0;
+	if(cnt == N) {
 		MIN = min(MIN, cost);
-	}while(next_permutation(arr, arr + N));
+		return;
+	}
 
-	return MIN;
+	int prev = -1;
+	for(int i = 0; i < N; ++i) {
+		if(visit[i]) continue;
+		if(prev > -1) {
+			tmp = W[prev][list[i]];
+			cost += tmp;
+		}
+		visit[i] = true;
+		prev = list[i];
+		whereToGo(cnt + 1);
+		cost -= tmp;
+		visit[i] = false;
+	}
 }
 
 int main()
 {
-	int N;
 	cin >> N;
-
 	for(int i = 0; i < N; ++i) {
 		for(int j = 0; j < N; ++j)
 			cin >> W[i][j];
-		arr[i] = i;
+		list[i] = i;
 	}
 
-	cout << lowCost(N);
+	cout << MIN;
 	return 0;
 }
