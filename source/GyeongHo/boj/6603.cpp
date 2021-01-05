@@ -1,5 +1,4 @@
 #include <iostream>
-#include <algorithm>
 #include <vector>
 using namespace std;
 
@@ -10,7 +9,7 @@ int S[49];
 
 void permutation(int cnt)
 {
-	if(cnt == k) {
+	if(cnt == 6) {
 		for(int i = 0; i < 6; ++i)
 			cout << v[i] << ' ';
 		cout << "\n";
@@ -42,8 +41,8 @@ int main()
 		for(int i = 0; i < k; ++i)
 			cin >> S[i];
 
-		sort(S, S + k);
-		permutation(1);
+		permutation(0);
+		cout << "\n";
 	}
 
 	return 0;
