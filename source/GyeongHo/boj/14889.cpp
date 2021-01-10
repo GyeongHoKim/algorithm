@@ -27,6 +27,8 @@ void score(void)
 {
 	vector<int> team1, team2;
 	for(int bitMask = 0; bitMask < (1 << N); ++bitMask) {
+		team1.clear();
+		team2.clear();
 		for(int i = 0; i < N; ++i) {
 			if(bitMask & (1 << i)) team1.push_back(i);
 			else team2.push_back(i);
