@@ -1,6 +1,6 @@
 #include <iostream>
 #include <string>
-#include <vector>
+#include <algorithm>
 using namespace std;
 
 int C, L;
@@ -48,9 +48,10 @@ int main()
 	for(int i = 0; i < C; ++i) {
 		char tmp;
 		cin >> tmp;
-		answer.push_back(tmp);
+		words.push_back(tmp);
 	}
-
+	
+	sort(words.begin(), words.end());
 	combination(0);
 
 	return 0;
