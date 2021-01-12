@@ -6,8 +6,13 @@ int table[2][15];
 
 void traverse(int index, int prev)
 {
-	if(index > N) {
-		if(MAX < sum - prev) MAX = sum - prev;
+	if(index >= N) {
+		if(index == N) {
+			if(MAX < sum) MAX = sum;
+		}
+		else {
+			if(MAX < sum - prev) MAX = sum - prev;
+		}
 		sum = 0;
 		return;
 	}
