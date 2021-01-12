@@ -21,7 +21,7 @@ bool chk()
 	return false;
 }
 
-void combination(int cnt)
+void combination(int cnt, int num)
 {
 	if(cnt == L) {
 		if(chk()) {
@@ -32,11 +32,11 @@ void combination(int cnt)
 		return;
 	}
 
-	for(int i = 0; i < C; ++i) {
+	for(int i = num; i < C; ++i) {
 		if(visit[i]) continue;
 		visit[i] = true;
 		answer.push_back(words[i]);
-		combination(cnt + 1);
+		combination(cnt + 1, i);
 		visit[i] = false;
 		answer.pop_back();
 	}
@@ -52,7 +52,7 @@ int main()
 	}
 	
 	sort(words.begin(), words.end());
-	combination(0);
+	combination(0, 0);
 
 	return 0;
 }
