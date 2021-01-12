@@ -5,7 +5,7 @@ using namespace std;
 
 int L, C;
 char a[16];
-void go(int index, int cnt, int mo, int ja, string a)
+void go(int index, int cnt, int mo, int ja, string s)
 {
 	if(cnt == L) {
 		if(mo >= 1 && ja >= 2)
