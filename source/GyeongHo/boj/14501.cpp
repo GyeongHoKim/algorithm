@@ -1,24 +1,18 @@
 #include <iostream>
+#include <algorithm>
 using namespace std;
 
-int N, sum = 0, MAX = 0;
+int N, MAX = -1;
 int table[2][15];
 
-void traverse(int index, int prev)
+void traverse(int day, int cost)
 {
-	if(index >= N) {
-		if(index == N) {
-			if(MAX < sum) MAX = sum;
-		}
-		else {
-			if(MAX < sum - prev) MAX = sum - prev;
-		}
-		sum = 0;
-		return;
-	}
+	if(day > N) return;
 
-	sum += table[1][index];
-	traverse(index + table[0][index], table[1][index]);
+	MAX = max(MAX, cost);
+
+	for(int i = day; i < N; ++i)
+		traverse(i + table[0][i], cost + table[1][i]);
 }
 
 int main()
@@ -27,8 +21,8 @@ int main()
 	for(int i = 0; i < N; ++i)
 		cin >> table[0][i] >> table[1][i];
 
-	for(int i = 0; i < N; ++i)
-		traverse(i, 0);
+	traverse(0, 0);
+
 	cout << MAX;
 	return 0;
 }
