@@ -6,5 +6,5 @@ goorm.manifest
 
 # binary files #
 
-./source/bin/
-../../bin/
+/source/bin/
+source/GyeongHo/bin/
