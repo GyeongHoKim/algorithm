@@ -1,32 +1,44 @@
 #include <iostream>
+#include <vector>
+#include <algorithm>
+
 using namespace std;
 
-int N, MIN = 987654321;
-bool check[20] = {false};
-int stats[20][20];
+const int MAX = 20;
+int min_dif = 1000;
+int S[MAX][MAX];
+int N;
 
-void DFS(int cnt, int pos, int end)
+int getStatDiff(vector<int>& start, vector<int>& link)
 {
-	if(cnt == end) {
-		int start = 0; int link;
-		for(int i = 0; i < N; ++i)
-			for(int j = 0; j < N; ++j) {
-				if(check[i] == true && check[j] == true)
-					start += stats[i][j];
-				if(check[i] == false && check[j] == false)
-					link += stats[i][j];
-			}
-		int temp = start - link;
-		if(temp < 0) temp = -temp;
-		if(MIN > temp) MIN = temp;
+	int sum_s = 0;
+	int sum_l = 0;
+	for(int i = 0; i < start.size(); ++i)
+		for(int j = 0; j < start.size(); ++j)
+			sum_s += S[start[i]][start[j]];
+
+	for(int i = 0; i < link.size(); ++i)
+		for(int j = 0; j < link.size(); ++j)
+			sum_l += S[link[i]][link[j]];
+
+	return abs(sum_s - sum_l);
+}
+
+void dfs(vector<int>& start, vector<int>& link, int index)
+{
+	if(index == N) {
+		if(start.size() == 0 || link.size() == 0) return;
+		min_dif = min(min_dif, getStatDiff(start, link));
 		return;
 	}
 
-	for(int i = pos; i < N - 1; ++i) {
-		check[i] = true;
-		DFS(cnt + 1, i + 1, end);
-		check[i] = false;
-	}
+	start.push_back(index);
+	dfs(start, link, index + 1);
+	start.pop_back();
+
+	link.push_back(index);
+	dfs(start, link, index + 1);
+	link.pop_back();
 }
 
 int main()
@@ -34,11 +46,11 @@ int main()
 	cin >> N;
 	for(int i = 0; i < N; ++i)
 		for(int j = 0; j < N; ++j)
-			cin >> stats[i][j];
+			cin >> S[i][j];
 
-	for(int i = 2; i < N; ++i)
-		DFS(0, 0, i);
+	vector<int> start, link;
+	dfs(start, link, 0);
 
-	cout << MIN;
+	cout << min_dif;
 	return 0;
 }
