@@ -4,7 +4,7 @@
 using namespace std;
 
 int k;
-string MAX = "0", MIN = "987654321";
+string MAX = "0", MIN = "9876543211";
 bool visit[10] = {false};
 string list ="0123456789";
 string ans;
@@ -25,8 +25,8 @@ void permutation(int cnt)
 {
 	if(cnt == k + 1) {
 		if(!chk()) return;
-		if(stoi(ans) > stoi(MAX)) MAX = ans;
-		if(stoi(ans) < stoi(MIN)) MIN = ans;
+		if(stoll(ans) > stoll(MAX)) MAX = ans;
+		if(stoll(ans) < stoll(MIN)) MIN = ans;
 		return;
 	}
 
