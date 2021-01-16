@@ -49,7 +49,7 @@ int solve()
 	return ret;
 }
 
-void set(int row,int col) // 각 
+void set(int row,int col) // 각 칸이 가로인지 세로인지 정하기
 {
 	if (row == n+1 && col == 1)
 	{
