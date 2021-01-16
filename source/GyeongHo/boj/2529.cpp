@@ -53,15 +53,11 @@ int main()
 	}
 
 	permutation(0);
-
-	string MAXstr = to_string(MAX);
-	string MINstr = to_string(MIN);
-
-	cout << MAXstr << "\n";
-
-	for(int i = 0; i < MAXstr.size() - MINstr.size(); ++i)
+	
+	cout << MAX << "\n";
+	if(compare[0] == '<')
 		cout << '0';
+	cout << MIN;
 
-	cout << MINstr;
 	return 0;
 }
