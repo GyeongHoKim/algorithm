@@ -1,11 +1,5 @@
 #include<iostream>
 #include<algorithm>
-#include<cstdlib>
-#include<string>
-
-#define MAX(a,b) (((a)>(b))?(a):(b))
-#define MAX_INT 2147483647
-#define MIN_INT -21474836487-1
 
 using namespace std;
 
@@ -16,33 +10,36 @@ int n, m;
 
 int solve()
 {
-	bool check[6][6] = { false };
 	int ret = 0;
-	for (int i = 1; i <= n; i++)
+	for (int i = 1; i <= n; i++) // 가로 계산
 	{
+		int tmp = 0;
 		for(int j = 1; j <= m; j++)
 		{ 
-			if (check[i][j] == false)
+			if (!bar[i][j])
 			{
-				int tmp = 0;
-				int ti = i, tj = j;
-				if (bar[ti][tj] == false)
+				tmp = tmp * 10 + paper[i][j];
+				if (j == m || bar[i][j+1])
 				{
-					while (bar[ti][tj] == false && tj <= m)
-					{
-						tmp = tmp * 10 + paper[ti][tj];
-						check[ti][tj++] = true;
-					}
-				}
-				else if (bar[ti][tj] == true)
+					ret += tmp;
+					tmp = 0;
+				}	
+			}
+		}
+	}
+	for (int j = 1; j <= m; j++) // 세로 계산
+	{
+		int tmp = 0;
+		for(int i = 1; i <= n; i++)
+		{ 
+			if (bar[i][j])
+			{
+				tmp = tmp * 10 + paper[i][j];
+				if (i == n || !bar[i+1][j])
 				{
-					while (bar[ti][tj] == true && ti <= n)
-					{
-						tmp = tmp * 10 + paper[ti][tj];
-						check[ti++][tj] = true;
-					}
-				}
-				ret += tmp;
+					ret += tmp;
+					tmp = 0;
+				}	
 			}
 		}
 	}
@@ -53,8 +50,7 @@ void set(int row,int col) // 각 칸이 가로인지 세로인지 정하기
 {
 	if (row == n+1 && col == 1)
 	{
-		int tmp = solve();
-		ans = max(ans, tmp);
+		ans = max(ans, solve());
 		return;
 	}
 
@@ -86,5 +82,5 @@ int main()
 		}
 	}
 	set(1,1);
-	printf("%d",ans);
+	printf("%d\n", ans);
 }
