@@ -56,7 +56,7 @@ void go(int order, int nst, int nlt)
 
 	lteam[nlt + 1] = order; // order번째 사람이 링크 팀으로 들어가는 경우
 	go(order + 1, nst, nlt+1);
-	lteam[nlt + 1] = 0;
+	//lteam[nlt + 1] = 0;
 }
 
 int main()
