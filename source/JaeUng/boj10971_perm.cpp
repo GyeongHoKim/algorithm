@@ -14,21 +14,21 @@ void solve()
     for (int i = 1; i <= N; i++)
     {
         perm[i] = i;
-    }   
+    }   // 순열 생성
 
     do {
         int sum = 0;
         for (int i = 1; i < N; i++)
         {
-            if (W[perm[i]][perm[i+1]])
+            if (W[perm[i]][perm[i+1]]) 
                 sum += W[perm[i]][perm[i+1]];
-            else
+            else // 길이 존재하지 않을 경우 탐색 중지
             {    
                 sum = 0;
                 break;
             }
         }
-        if (sum && W[perm[N]][perm[1]])
+        if (sum && W[perm[N]][perm[1]]) // 탐색 후 되돌아 오는 길의 가중치까지 더함
         { 
             sum += W[perm[N]][perm[1]];
             ans = min(ans, sum);
