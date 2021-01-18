@@ -12,8 +12,11 @@ bool trueIfPossible(int index)
 	if(ans.size() == 0) return true;
 	
 	for(int i = 0; i < index; ++i) {
+		if(S[i][i] == '+' && ans[i] <= 0) return false;
+		if(S[i][i] == '-' && ans[i] >= 0) return false;
+		if(S[i][i] == '0' && ans[i] != 0) return false;
 		int sum = ans[i];
-		for(int j = 0; j < index; ++j) {
+		for(int j = i+1; j < index; ++j) {
 			sum += ans[j];
 			if(S[i][j] == '+' && sum <= 0) return false;
 			if(S[i][j] == '-' && sum >= 0) return false;
