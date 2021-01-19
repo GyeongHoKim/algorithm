@@ -4,7 +4,7 @@ namespace evaluateMIN
 {
 	class makeInOne
 	{
-		static int[] cache = new int[1000000];
+		static int[] cache = new int[1000001];
 
 		static int dfs(int x)
 		{
@@ -17,7 +17,7 @@ namespace evaluateMIN
 
 		static void Main()
 		{
-			for(int i = 0; i < 1000000; ++i)
+			for(int i = 0; i < 1000001; ++i)
 				cache[i] = -1;
 
 			int x;
