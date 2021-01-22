@@ -2,12 +2,12 @@
 #include <cstring>
 using namespace std;
 
-int D[91];
+long long D[91];
 
-int DP(int N)
+long long DP(int N)
 {
 	if(D[N] != -1) return D[N];
-	return D[N] = D[N - 1] + D[N - 2];
+	return D[N] = DP(N - 1) + DP(N - 2);
 }
 
 int main()
