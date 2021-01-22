@@ -9,9 +9,9 @@ int DP(int n, int L)
 {
 	int& ret = cache[n][L];
 	if(ret != -1) return ret;
-	if(L == 9) return ret = cache[n-1][L-1] % MOD;
-	if(L == 0) return ret = cache[n-1][L+1] % MOD;
-	return (cache[n-1][L-1] + cache[n-1][L+1]) % MOD;
+	if(L == 9) return ret = DP(n-1, L-1) % MOD;
+	if(L == 0) return ret = DP(n-1, L+1) % MOD;
+	return ret = (DP(n-1, L-1) + DP(n-1, L+1)) % MOD;
 }
 
 int main()
