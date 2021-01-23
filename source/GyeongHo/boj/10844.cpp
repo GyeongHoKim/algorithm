@@ -25,7 +25,7 @@ int main()
 
 	int sum = 0;
 	for(int i = 0; i < 10; ++i)
-		sum += DP(n, i);
+		sum = (sum + DP(n, i)) % MOD;
 	cout << sum;
 	return 0;
 }
