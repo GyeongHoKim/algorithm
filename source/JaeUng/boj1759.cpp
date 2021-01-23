@@ -14,8 +14,7 @@ void solve(int consonant, int vowel, int idx)
 {
     if (password.size() == L && consonant >= 2 && vowel >= 1) //유효한 암호일 경우
     {
-        for (const auto& c : password)
-            cout << c; 
+        for (const auto& c : password) cout << c; 
         cout << '\n';
         return;
     }
@@ -23,11 +22,7 @@ void solve(int consonant, int vowel, int idx)
         return;
     
     password.push_back(alphabet[idx]); // 알파벳을 선택 한 경우
-    if (isVowel(alphabet[idx])) 
-        solve(consonant, vowel + 1, idx + 1);
-    else 
-        solve(consonant + 1, vowel, idx + 1);
-
+    isVowel(alphabet[idx]) ? solve(consonant, vowel + 1, idx + 1) : solve(consonant + 1, vowel, idx + 1);
     password.pop_back(); // 알파벳을 선택하지 않은 경우
     solve(consonant, vowel, idx + 1);
 }
