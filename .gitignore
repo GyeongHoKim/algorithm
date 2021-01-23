@@ -3,6 +3,7 @@
 goorm.manifest
 .theia/
 .vscode/
+.exe/
 
 # binary files #
 

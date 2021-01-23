@@ -42,9 +42,8 @@ void go(int order, int nst, int nlt)
 {
 	if (nst == n / 2 && nlt == n / 2) // 인원이 정확하게 나뉘어진 경우
 	{
-		int tmp = abs(ssum(n) - lsum(n));
-		if (tmp < ans)
-			ans = tmp;
+		int tmp = abs(ssum() - lsum());
+		ans = min(ans, tmp);
 		return;
 	} 
 
@@ -57,7 +56,7 @@ void go(int order, int nst, int nlt)
 
 	lteam[nlt + 1] = order; // order번째 사람이 링크 팀으로 들어가는 경우
 	go(order + 1, nst, nlt+1);
-	lteam[nlt + 1] = 0;
+	//lteam[nlt + 1] = 0;
 }
 
 int main()
