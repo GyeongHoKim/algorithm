@@ -1,22 +1,22 @@
 #include <iostream>
-#include <cstring>
 using namespace std;
 
 int cache[100001];
 
 int DP(int N)
 {
-	int element;
-	for(element = 1; element * element <= N; ++element){}
-	--element;
-	if(cache[N] != -1) return cache[N];
-	else return cache[N] = DP(N - element * element) + 1;
+	if(cache[N] != 987654321) return cache[N];
+	for(int i = 1; i * i<= N; ++i) {
+		cache[N] = min(cache[N], DP(N - i * i) + 1);
+	}
+	
+	return cache[N];
 }
 
 int main()
 {
 	int N;
-	memset(cache, -1, sizeof(cache));
+	for(int i = 0; i <= 100000; ++i) cache[i] = 987654321;
 	cache[0] = 0; cache[1] =1;
 	cin >> N;
 
