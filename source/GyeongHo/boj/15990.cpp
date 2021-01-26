@@ -1,5 +1,6 @@
 #include <iostream>
 #include <cstring>
+#define MOD 1000000009
 using namespace std;
 
 int D[100001][3];
@@ -17,7 +18,7 @@ int DP(int n)
 	for(int i = 1; i <= 3; ++i)
 		sum += D[n][i];
 
-	return sum;
+	return sum % MOD;
 }
 
 int main()
