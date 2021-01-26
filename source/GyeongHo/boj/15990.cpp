@@ -1,11 +1,11 @@
 #include <iostream>
 #include <cstring>
-#define MOD 1000000009
 using namespace std;
 
-int D[100001][3];
+long long MOD = 1000000009;
+long long D[100001][4];
 
-int DP(int n)
+long long DP(int n)
 {
 	for(int i = 4; i <= n; ++i)
 		for(int j = 1; j <= 3; ++j) {
@@ -14,7 +14,7 @@ int DP(int n)
 			if(j == 3) D[i][j] = D[i - j][1] + D[i - j][2];
 		}
 
-	int sum = 0;
+	long long sum = 0;
 	for(int i = 1; i <= 3; ++i)
 		sum += D[n][i];
 
@@ -25,10 +25,11 @@ int main()
 {
 	int C, n;
 	cin >> C;
+	memset(D, 0, sizeof(D));
+	D[1][1] = 1; D[2][2] = 1; D[3][1] = 1; D[3][2] =1; D[3][3] = 1;
+
 	while(C--) {
 		cin >> n;
-		memset(D, 0, sizeof(D));
-		D[1][1] = 1; D[2][2] = 1; D[3][1] = 1; D[3][2] =1; D[3][3] = 1;
 
 		cout << DP(n) << "\n";
 	}
