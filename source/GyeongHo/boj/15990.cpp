@@ -9,9 +9,9 @@ long long DP(int n)
 {
 	for(int i = 4; i <= n; ++i)
 		for(int j = 1; j <= 3; ++j) {
-			if(j == 1) D[i][j] = D[i - j][2] + D[i - j][3];
-			if(j == 2) D[i][j] = D[i - j][1] + D[i - j][3];
-			if(j == 3) D[i][j] = D[i - j][1] + D[i - j][2];
+			if(j == 1) D[i][j] = (D[i - j][2] + D[i - j][3]) % MOD;
+			if(j == 2) D[i][j] = (D[i - j][1] + D[i - j][3]) % MOD;
+			if(j == 3) D[i][j] = (D[i - j][1] + D[i - j][2]) % MOD;
 		}
 
 	long long sum = 0;
