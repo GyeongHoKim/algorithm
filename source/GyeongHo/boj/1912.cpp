@@ -1,6 +1,5 @@
 #include <iostream>
 using namespace std;
-//test for branch recognition
 
 int arr[100001], cache[100001];
 
@@ -9,7 +8,7 @@ int DP(int n)
 	for(int i = 2; i <= n; ++i)
 		cache[i] = max(arr[i], cache[i - 1] + arr[i]);
 
-	int MAX = -1;
+	int MAX = cache[1];
 	for(int i = 1; i <= n; ++i)
 		MAX = max(MAX, cache[i]);
 
