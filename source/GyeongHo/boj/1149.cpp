@@ -22,7 +22,7 @@ int main()
 		}
 	}
 
-	int MIN = 1001;
+	int MIN = 1000001;
 	for(int i = 0; i < 3; ++i)
 		MIN = min(MIN, cache[n][i]);
 
