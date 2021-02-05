@@ -7,6 +7,7 @@ int D[501][501], arr[501][501];
 
 int DP(int i, int j)
 {
+	if( i > N) return 0;
 	int& ret = D[i][j];
 	if(ret != -1) return ret;
 	return ret = max(arr[i][j] + DP(i + 1, j), arr[i][j] + DP(i + 1, j + 1));
