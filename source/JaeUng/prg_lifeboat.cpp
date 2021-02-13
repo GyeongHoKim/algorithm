@@ -12,12 +12,12 @@ int solution(vector<int> people, int limit)
 
     while(start <= end)
     {
-        if(people[start] + people[end] <= limit)
+        if(people[start] + people[end] <= limit) // 가장 무거운 사람과 가장 가벼운 사람을 동시에 태울 수 있을 경우
         {
             start += 1;
             end -= 1;
         }
-        else
+        else // 가장 무거운 사람만 태울 수 있을 경우
         {
             end -= 1;
         }
