@@ -29,8 +29,8 @@ int solution(string name)
 
 int main()
 {
-    //ios::sync_with_stdio(false);
-    //cin.tie(NULL);
+    ios::sync_with_stdio(false);
+    cin.tie(NULL);
 
     string name;
     cin >> name;
