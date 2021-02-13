@@ -17,8 +17,8 @@ int solution(string name)
         {
             int target = i;
             while(target < name.length() && name[target] == 'A') target += 1; // A가 끝날때 까지 이동
-            int left = i == 0 ? 0 : i - 1; // A의 왼쪽 알파벳 개수
-            int right = name.length() - target;  // A의 오른쪽 알파벳 개수
+            int left = i == 0 ? 0 : i - 1; // A의 왼쪽에서 이동해야 할 횟수
+            int right = name.length() - target;  // A의 오른쪽에서 이동해야할 횟수
             shift = min(shift, left + right + min(left, right)); // 이동해야 할 총횟수
         }
     }
