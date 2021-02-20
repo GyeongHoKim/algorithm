@@ -7,7 +7,7 @@ int N, A[11];
 char S[11][11];
 bool solved;
 
-bool check(int start)   // 대각선을 제외한 배열 검사
+bool check(int start)   // S배열 열검사
 {
 	int prev = 0;
 	for (int i = start; i >= 1; i--)
