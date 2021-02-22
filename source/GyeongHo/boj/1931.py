@@ -2,10 +2,14 @@ import sys
 input = sys.stdin.readline
 
 n = int(input())
-timeList = [[0] * 2 for _ in range(100000)]
+timeList = [[0] * 2 for _ in range(n)]
 for i in range(n):
-    timeList[i][0], timeList[i][1] = map(int, input().split())
+	s, e = map(int, input().split())
+	timeList[i][0] = s
+	timeList[i][1] = e
 timeList.sort(key = lambda x: (x[1], x[0]))
+for i in range(n):
+	print(timeList[i][0], timeList[i][1])
 
 count = 1
 endTime = timeList[0][1]
