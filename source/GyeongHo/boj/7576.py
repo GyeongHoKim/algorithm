@@ -1,54 +1,41 @@
+import sys
+input = sys.stdin.readline
+
 m, n = map(int, input().split())
-warehouse = []
-start = []
-dirX = [0, 0, 1, -1]
-dirY = [1, -1, 0, 0]
-visited = [[False] * m for _ in range(n)]
-count = [[0] * m for _ in range(n)]
+tomato = [list(map(int, input().split())) for _ in range(n)]
+q = []
+dirY = [0, 0, 1, -1]
+dirX = [1, -1, 0, 0]
 
 for i in range(n):
-	warehouse.append(list(map(int, input().split())))
 	for j in range(m):
-		if warehouse[i][j] == 1:
-			start.append((i, j))
+		if tomato[i][j] == 1:
+			q.append((i, j))
 
-def checkInRange(i, j):
-	if i < 0 or i >= n:
-		return False
-	if j < 0 or j >= m:
-		return False
-	return True
+def countDay():
+	maxDay = 0
+	for row in tomato:
+		if 0 in row:
+			return -1
+		maxDay = max(maxDay, max(row))
+		return maxDay - 1
+
+def chkCanGo(i, j):
+	if 0 <= i < n and 0 <= j < m and tomato[i][j] == 0:
+		return True
+	return False
 
 def bfs():
-	for i, j in start:
-		visited[i][j] = True
-	while start:
-		posY, posX = start.pop(0)
+	while q:
+		posY, posX = q.pop()
 		for i in range(4):
 			newY = posY + dirY[i]
 			newX = posX + dirX[i]
-			if checkInRange(newY, newX):
-				if not visited[newY][newX] and warehouse[newY][newX] == 0:
-					start.append((newY, newX))
-					visited[newY][newX] = True
-					count[newY][newX] = count[posY][posX] + 1
-
-def checkImpossible():
-	for i in range(n):
-		for j in range(m):
-			if not visited[i][j] and warehouse[i][j] != -1:
-				return True
-	return False
-
-def  dayCount():
-	MAX = 0
-	for i in range(n):
-		MAX = max(MAX, max(count[i]))
-	return MAX
+			if chkCanGo(newY, newX):
+				tomato[newY][newX] = tomato[posY][posX] + 1
+				q.append((newY, newX))
 
 bfs()
+print(tomato)
 
-if checkImpossible():
-	print(-1)
-else:
-	print(dayCount())
+print(countDay())
