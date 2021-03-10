@@ -1,3 +1,4 @@
+from collections import deque
 import sys
 input = sys.stdin.readline
 
@@ -9,7 +10,7 @@ dx = (1, -1, 0, 0)
 def bfs(q):
 	MAX = -1
 	while q:
-		posY, posX = q.pop(0)
+		posY, posX = q.popleft()
 		for i in range(4):
 			newY, newX = posY + dy[i], posX + dx[i]
 			if 0 <= newY < n and 0 <= newX < m and tomato[newY][newX] == 0:
@@ -21,7 +22,7 @@ def bfs(q):
 			return -1
 	return MAX - 1
 
-queue = []
+queue = deque()
 for i in range(n):
 	for j in range(m):
 		if tomato[i][j] == 1:
