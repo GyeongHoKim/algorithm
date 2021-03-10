@@ -3,39 +3,28 @@ input = sys.stdin.readline
 
 m, n = map(int, input().split())
 tomato = [list(map(int, input().split())) for _ in range(n)]
-q = []
-dirY = [0, 0, 1, -1]
-dirX = [1, -1, 0, 0]
+dy = (0, 0, 1, -1)
+dx = (1, -1, 0, 0)
 
+def bfs(q):
+	MAX = -1
+	while q:
+		posY, posX = q.pop(0)
+		for i in range(4):
+			newY, newX = posY + dy[i], posX + dx[i]
+			if 0 <= newY < n and 0 <= newX < m and tomato[newY][newX] == 0:
+				tomato[newY][newX] = tomato[posY][posX] + 1
+				q.append((newY, newX))
+				MAX = max(MAX, tomato[newY][newX])
+	for tot in tomato:
+		if 0 in tot:
+			return -1
+	return MAX - 1
+
+queue = []
 for i in range(n):
 	for j in range(m):
 		if tomato[i][j] == 1:
-			q.append((i, j))
+			queue.append((i, j))
 
-def countDay():
-	maxDay = 0
-	for row in tomato:
-		if 0 in row:
-			return -1
-		maxDay = max(maxDay, max(row))
-		return maxDay - 1
-
-def chkCanGo(i, j):
-	if 0 <= i < n and 0 <= j < m and tomato[i][j] == 0:
-		return True
-	return False
-
-def bfs():
-	while q:
-		posY, posX = q.pop()
-		for i in range(4):
-			newY = posY + dirY[i]
-			newX = posX + dirX[i]
-			if chkCanGo(newY, newX):
-				tomato[newY][newX] = tomato[posY][posX] + 1
-				q.append((newY, newX))
-
-bfs()
-print(tomato)
-
-print(countDay())
+print(bfs(queue))
