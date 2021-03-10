@@ -8,7 +8,7 @@ dy = (0, 0, 1, -1)
 dx = (1, -1, 0, 0)
 
 def bfs(q):
-	MAX = -1
+	MAX = 1
 	while q:
 		posY, posX = q.popleft()
 		for i in range(4):
