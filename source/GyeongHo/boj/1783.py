@@ -8,7 +8,7 @@ def illKnight(n, m):
 		if m > 6:
 			return m - 5 + 3
 	else:
-		return 0
+		return 1
 
 n, m = map(int, input().split())
 print(illKnight(n, m))
