@@ -6,7 +6,7 @@ def illKnight(n, m):
 			return m // 3
 	elif n > 2:
 		if m > 6:
-			return m - 5
+			return m - 5 + 3
 	else:
 		return 0
 
