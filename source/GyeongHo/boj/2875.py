@@ -13,7 +13,7 @@ def timsko(m, n, k):
 			m -= 2
 			n -= 1
 			k -= 3
-	return n
+	return min(n, m // 2)
 
 m, n, k = map(int, input().split())
 print(timsko(m, n, k))
