@@ -1,12 +1,16 @@
 def illKnight(n, m):
-	if n == 2:
-		if m > 6:
-			return 3
-		else:
-			return m // 3
-	elif n > 2:
+	if n > 2:
 		if m > 6:
 			return m - 5 + 3
+		elif m < 4:
+			return m
+		else:
+			return 4
+	elif n == 2:
+		if m > 6:
+			return 4
+		else:
+			return (m + 1) // 2
 	else:
 		return 1
 
