@@ -1,0 +1,41 @@
+<html>
+    <head>
+        <meta charset="UTF-8">
+        <title>출력결과</title>
+    </head>
+    <body>
+        <script>
+            function quickSort(arr, start, end) {
+                if (start >= end)
+                    return;
+                let pivot = start;
+                let left = start + 1;
+                let right = end;
+
+                while (left <= right) {
+                    while (left <= end && arr[left] <= arr[pivot])
+                        ++left;
+                    while (right > start && arr[right] >= arr[pivot])
+                        --right;
+                    let tmp;
+                    if (left > right) {
+                        tmp = arr[right];
+                        arr[right] = arr[pivot];
+                        arr[pivot] = tmp;
+                    }
+                    else {
+                        tmp = arr[left];
+                        arr[left] = arr[right];
+                        arr[right] = tmp;
+                    }
+                }
+                quickSort(arr, start, right - 1);
+                quickSort(arr, right + 1, end);
+            }
+
+            let arr=[5, 7, 1, 3, 2, 9, 11];
+            quickSort(arr, 0, arr.length - 1);
+            console.log(arr);
+        </script>
+    </body>
+</html>
