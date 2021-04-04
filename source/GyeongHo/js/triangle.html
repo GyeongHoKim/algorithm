@@ -9,7 +9,7 @@
                 let answer="YES", sum = a + b + c;
                 let array = [a, b, c];
                 for (let i of array) {
-                    if (i > sum - i) {
+                    if (i >= sum - i) {
                         answer = "NO";
                         break;
                     }
