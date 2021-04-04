@@ -1,0 +1,23 @@
+<html>
+    <head>
+        <meta charset="UTF-8">
+        <title>출력결과</title>
+    </head>
+    <body>
+        <script>
+            function solution(a, b, c){
+                let answer="YES", sum = a + b + c;
+                let array = [a, b, c];
+                for (let i of array) {
+                    if (i > sum - i) {
+                        answer = "NO";
+                        break;
+                    }
+                }
+                return answer;
+            }
+
+            console.log(solution(13, 33, 17));
+        </script>
+    </body>
+</html>
