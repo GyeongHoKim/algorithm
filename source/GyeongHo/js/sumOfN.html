@@ -1,0 +1,15 @@
+<html>
+    <head>
+        <meta charset="UTF-8">
+        <title>출력결과</title>
+    </head>
+    <body>
+        <script>
+            function solution(n){
+                return [...Array(n + 1).keys()].reduce((a, b) => a + b, 0);
+            }
+
+            console.log(solution(10));
+        </script>
+    </body>
+</html>
