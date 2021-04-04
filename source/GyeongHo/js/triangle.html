@@ -6,14 +6,9 @@
     <body>
         <script>
             function solution(a, b, c){
-                let answer="YES", sum = a + b + c;
-                let array = [a, b, c];
-                for (let i of array) {
-                    if (i >= sum - i) {
-                        answer = "NO";
-                        break;
-                    }
-                }
+                let answer="YES", sum = a + b + c, maxSide = Math.max(a, b, c);
+                if (maxSide >= sum - maxSide)
+                    answer="NO";
                 return answer;
             }
 
