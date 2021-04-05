@@ -1,0 +1,26 @@
+<html>
+    <head>
+        <meta charset="UTF-8">
+        <title>출력</title>
+    </head>
+    <body>
+        <script>
+            function solution(arr){
+                let minNum = Number.MAX_SAFE_INTEGER;
+                let sumOfOdds = 0;
+                for (let i of arr) {
+                    if (i % 2 == 0)
+                        continue;
+                    if (minNum > i)
+                        minNum = i;
+                    sumOfOdds += i;
+                }
+                let answer = [sumOfOdds, minNum];
+                return answer;
+            }
+            
+            arr=[12, 77, 38, 41, 53, 92, 85];
+            console.log(solution(arr));
+        </script>
+    </body>
+</html>
