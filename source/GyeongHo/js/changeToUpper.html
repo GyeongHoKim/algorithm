@@ -1,0 +1,26 @@
+<html>
+    <head>
+        <meta charset="UTF-8">
+        <title>출력결과</title>
+    </head>
+    <body>
+        <script>
+			const DIFF_UPPER_low = 'a'.charCodeAt(0) - 'A'.charCodeAt(0);
+			const MIN_lower_ASCII = 'a'.charCodeAt(0);
+			const MAX_lower_ASCII = 'z'.charCodeAt(0);
+            function solution(s){
+				return s.toUpperCase();
+				
+				// for (let i = 0; i < s.length; ++i) {
+				// 	let wordASCII = s.charCodeAt(i);
+				// 	if (MIN_lower_ASCII <= wordASCII && wordASCII <= MAX_lower_ASCII)
+				// 		s[i] = String.fromCharCode(wordASCII - DIFF_UPPER_low);
+				// }
+				// return s;
+            }
+
+            let str="ItisTimeToStudy";
+            console.log(solution(str));
+        </script>
+    </body>
+</html>
