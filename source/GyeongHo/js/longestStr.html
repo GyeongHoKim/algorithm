@@ -1,0 +1,22 @@
+<html>
+    <head>
+        <meta charset="UTF-8">
+        <title>출력결과</title>
+    </head>
+    <body>
+        <script>
+            function solution(s){
+				let maximum = Number.MIN_SAFE_INTEGER;
+				let ans = "";
+				for (let words of s)
+					if (words.length > maximum) {
+						maximum = words.length;
+						ans = words;
+					}
+				return ans;
+            }
+            let str=["teacher", "time", "student", "beautiful", "good"];
+            console.log(solution(str));
+        </script>
+    </body>
+</html>
