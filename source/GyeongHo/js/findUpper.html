@@ -1,0 +1,22 @@
+<html>
+    <head>
+        <meta charset="UTF-8">
+        <title>출력결과</title>
+    </head>
+    <body>
+        <script>
+			const MIN_UPPER_ASCII = 'Z'.charCodeAt(0);
+            function solution(s){
+				let ans = 0;
+				for (let i = 0; i < s.length; ++i) {
+					if (s.charCodeAt(i) <= MIN_UPPER_ASCII)
+						++ans;
+				}
+				return ans;
+            }
+
+            let str="KoreaTimeGood";
+            console.log(solution(str));
+        </script>
+    </body>
+</html>
