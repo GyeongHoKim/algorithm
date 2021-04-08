@@ -6,12 +6,7 @@
     <body>
         <script>
             function solution(s, t){
-				let ans = 0;
-				for (let i of s) {
-					if (i === t)
-						++ans;
-				}
-				return ans;
+				return s.split(t).length -1;
             }
             
             let str="COMPUTERPROGRAMMING";
