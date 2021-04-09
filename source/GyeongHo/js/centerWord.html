@@ -7,12 +7,11 @@
         <script>
             function solution(s){  
 				let ans="";
-				if (s % 2 == 0) {
-					ans = s[s.length/2] + s[s.length/2-1];
-				}
-				else {
-					ans = s[Math.floor(s.length/2)];
-				}
+                const mid = Math.floor(s / 2);
+				if (s % 2 == 0)
+					ans = s.substr(mid - 1, 2);
+				else
+					ans = s.substr(mid, 1);
 				return ans;
             }
             console.log(solution("study"));
