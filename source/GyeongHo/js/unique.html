@@ -1,0 +1,18 @@
+<html>
+    <head>
+        <meta charset="UTF-8">
+        <title>출력결과</title>
+    </head>
+    <body>
+        <script>
+            function solution(s){
+                let ans = "";
+                for (let i = 0; i < s.length; ++i)
+                    if (i === s.indexOf(s[i]))
+                        ans += s[i];
+                return ans;
+            }
+            console.log(solution("ksekkset"));
+        </script>
+    </body>
+</html>
