@@ -1,0 +1,25 @@
+<html>
+    <head>
+        <meta charset="UTF-8">
+        <title>출력결과</title>
+    </head>
+    <body>
+        <script>
+            function solution(arr){
+				let score = 0;
+				let total = 0;
+				for (let i = 0; i < arr.length; ++i) {
+					if (arr[i] === 0) {
+						score = 0;
+						continue;
+					}
+					total += ++score;
+				}
+				return total;
+            }
+
+            let arr=[1, 0, 1, 1, 1, 0, 0, 1, 1, 0];
+            console.log(solution(arr));
+        </script>
+    </body>
+</html>
