@@ -1,0 +1,23 @@
+<html>
+    <head>
+        <meta charset="UTF-8">
+        <title>출력결과</title>
+    </head>
+    <body>
+        <script>
+            function solution(arr){
+				let arrLen = arr.length;
+                for (let i = 0; i < arrLen - 1; ++i) {
+					if (arr[i] > arr[i + 1]) {
+						arr.splice(i + 1, 1);
+						arrLen--;
+					}
+				}
+				return arr;
+            }
+
+            let arr=[7, 3, 9, 5, 6, 12];
+            console.log(solution(arr));
+        </script>
+    </body>
+</html>
