@@ -1,0 +1,25 @@
+<html>
+    <head>
+        <meta charset="UTF-8" />
+        <title>출력결과</title>
+    </head>
+    <body>
+        <script>
+            function solution(s) {
+				let sLen = s.length;
+				for (let i = 0; i < sLen; ++i) {
+					for (let j = i + 1; j < sLen; ++j) {
+						if (s[i] === s[j]) {
+							s.splice(j, 1);
+							--sLen;
+							--j;
+						}
+					}
+				}
+				return s;
+            }
+            let str = ['good', 'time', 'good', 'time', 'student'];
+            console.log(solution(str));
+        </script>
+    </body>
+</html>
