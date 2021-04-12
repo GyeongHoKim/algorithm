@@ -6,17 +6,12 @@
     <body>
         <script>
             function solution(s) {
-				let sLen = s.length;
-				for (let i = 0; i < sLen; ++i) {
-					for (let j = i + 1; j < sLen; ++j) {
-						if (s[i] === s[j]) {
-							s.splice(j, 1);
-							--sLen;
-							--j;
-						}
-					}
-				}
-				return s;
+				let answer;
+				answer = s.filter((v, i) => {
+					if (i === s.indexOf(v))
+						return v;
+				});
+				return answer;
             }
             let str = ['good', 'time', 'good', 'time', 'student'];
             console.log(solution(str));
