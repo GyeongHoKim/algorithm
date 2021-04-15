@@ -1,0 +1,44 @@
+<html>
+    <head>
+        <meta charset="UTF-8">
+        <title>출력결과</title>
+    </head>
+    <body>
+        <script>
+			function chk(arr, i, j) {
+				if (i - 1 >= 0)
+					if (arr[i][j] < arr[i - 1][j])
+						return false;
+				if (i + 1 < arr.length)
+					if (arr[i][j] < arr[i + 1][j])
+						return false;
+				if (j - 1 >= 0)
+					if (arr[i][j] < arr[i][j - 1])
+						return false;
+				if (j + 1 < arr[0].length)
+					if (arr[i][j] < arr[i][j + 1])
+						return false;
+				return true;
+			}
+			
+            function solution(arr){
+				let count = 0;
+				for (let i = 0; i < arr.length; ++i) {
+					for (let j = 0; j < arr[0].length; ++j) {
+						if (chk(arr, i, j)) {
+							++count;
+						}
+					}
+				}
+				return count;
+            }
+
+            let arr=[[5, 3, 7, 2, 3], 
+                     [3, 7, 1, 6, 1],
+                     [7, 2, 5, 3, 4],
+                     [4, 3, 6, 4, 1],
+                     [8, 7, 3, 5, 2]];
+            console.log(solution(arr));
+        </script>
+    </body>
+</html>
