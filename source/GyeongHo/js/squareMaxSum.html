@@ -5,45 +5,25 @@
     </head>
     <body>
         <script>
-			function rowMax(arr) {
-				let maxRow = 0;
-				for (let row of arr) {
-					let tmp = row.reduce((a, b)=>{return a + b;}, 0);
-					if (maxRow < tmp)
-						maxRow = tmp;
-				}
-				return maxRow;
-			}
-			
-			function columnMax(arr) {
-				let maxColumn = 0;
-				for (let i = 0; i < arr[0].length; ++i) {
-					let tmp = 0;
-					for (let j = 0; j < arr.length; ++j) {
-						tmp += arr[j][i];
-					}
-					if (maxColumn < tmp)
-						maxColumn = tmp;
-				}
-				return maxColumn;
-			}
-			
-			function diagonalMax(arr) {
-				let n = arr.length;
-				let left = 0, right = 0;
-				for (let i = 0; i < n; ++i) {
-					left += arr[i][i];
-					right += arr[i][n - 1 - i];
-				}
-				return Math.max(right, left);
-			}
-			
-            function solution(arr){
-				let row = rowMax(arr);
-				let column = columnMax(arr);
-				let diagonal = diagonalMax(arr);
-				
-				return Math.max(row, column, diagonal);
+            function solution(arr){  
+                let answer=Number.MIN_SAFE_INTEGER;
+                let n=arr.length;
+                let sum1=sum2=0;
+                for(let i=0; i<n; i++){
+                    sum1=sum2=0;
+                    for(let j=0; j<n; j++){
+                        sum1+=arr[i][j];
+                        sum2+=arr[j][i];
+                    }
+                    answer=Math.max(answer, sum1, sum2);
+                }
+                sum1=sum2=0;
+                for(let i=0; i<n; i++){
+                    sum1+=arr[i][i];
+                    sum2+=arr[i][n-i-1];
+                }  
+                answer=Math.max(answer, sum1, sum2); 
+                return answer;
             }
 
             let arr=[[10, 13, 10, 12, 15], 
