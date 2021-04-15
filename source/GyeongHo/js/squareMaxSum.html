@@ -1,0 +1,57 @@
+<html>
+    <head>
+        <meta charset="UTF-8">
+        <title>출력결과</title>
+    </head>
+    <body>
+        <script>
+			function rowMax(arr) {
+				let maxRow = 0;
+				for (let row of arr) {
+					let tmp = row.reduce((a, b)=>{return a + b;}, 0);
+					if (maxRow < tmp)
+						maxRow = tmp;
+				}
+				return maxRow;
+			}
+			
+			function columnMax(arr) {
+				let maxColumn = 0;
+				for (let i = 0; i < arr[0].length; ++i) {
+					let tmp = 0;
+					for (let j = 0; j < arr.length; ++j) {
+						tmp += arr[j][i];
+					}
+					if (maxColumn < tmp)
+						maxColumn = tmp;
+				}
+				return maxColumn;
+			}
+			
+			function diagonalMax(arr) {
+				let n = arr.length;
+				let left = 0, right = 0;
+				for (let i = 0; i < n; ++i) {
+					left += arr[i][i];
+					right += arr[i][n - 1 - i];
+				}
+				return Math.max(right, left);
+			}
+			
+            function solution(arr){
+				let row = rowMax(arr);
+				let column = columnMax(arr);
+				let diagonal = diagonalMax(arr);
+				
+				return Math.max(row, column, diagonal);
+            }
+
+            let arr=[[10, 13, 10, 12, 15], 
+                     [12, 39, 30, 23, 11],
+                     [11, 25, 50, 53, 15],
+                     [19, 27, 29, 37, 27],
+                     [19, 13, 30, 13, 19]];
+            console.log(solution(arr));
+        </script>
+    </body>
+</html>
