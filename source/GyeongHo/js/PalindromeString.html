@@ -1,0 +1,19 @@
+<html>
+    <head>
+        <meta charset="UTF-8">
+        <title>출력결과</title>
+    </head>
+    <body>
+        <script>
+            function solution(s){
+				const lowerS = s.toLowerCase();
+				if (lowerS === [...lowerS].reverse().join(""))
+					return "YES";
+				return "NO";
+            }
+            
+            let str="goooG";
+            console.log(solution(str));
+        </script>
+    </body>
+</html>
