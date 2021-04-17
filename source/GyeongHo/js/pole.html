@@ -5,33 +5,34 @@
     </head>
     <body>
         <script>
-			function chk(arr, i, j) {
-				if (i - 1 >= 0)
-					if (arr[i][j] < arr[i - 1][j])
-						return false;
-				if (i + 1 < arr.length)
-					if (arr[i][j] < arr[i + 1][j])
-						return false;
-				if (j - 1 >= 0)
-					if (arr[i][j] < arr[i][j - 1])
-						return false;
-				if (j + 1 < arr[0].length)
-					if (arr[i][j] < arr[i][j + 1])
-						return false;
-				return true;
-			}
-			
             function solution(arr){
-				let count = 0;
-				for (let i = 0; i < arr.length; ++i) {
-					for (let j = 0; j < arr[0].length; ++j) {
-						if (chk(arr, i, j)) {
-							++count;
+            	const dy = [0, 0, 1, -1];
+				const dx = [1, -1, 0, 0];
+				const lenArr = arr.length;
+				let ans = 0;
+				
+				for (let i = 0; i < lenArr; ++i) {
+					for (let j = 0; j < lenArr; ++j) {
+						let count = 0;
+						for (let k = 0; k < 4; ++k) {
+							let y = i + dy[k];
+							let x = j + dx[k];
+							if (y < lenArr && y >= 0 && x < lenArr && x >= 0) {
+								if (arr[i][j] > arr[y][x]) {
+									++count;
+								}
+							}
+							else {
+								++count;
+							}
+						}
+						if (count == 4) {
+							++ans;
 						}
 					}
 				}
-				return count;
-            }
+				return ans;
+			}
 
             let arr=[[5, 3, 7, 2, 3], 
                      [3, 7, 1, 6, 1],
