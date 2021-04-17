@@ -13,22 +13,21 @@
 				
 				for (let i = 0; i < lenArr; ++i) {
 					for (let j = 0; j < lenArr; ++j) {
-						let count = 0;
+						let flag = true;
 						for (let k = 0; k < 4; ++k) {
-							let y = i + dy[k];
-							let x = j + dx[k];
-							if (y < lenArr && y >= 0 && x < lenArr && x >= 0) {
-								if (arr[i][j] > arr[y][x]) {
-									++count;
+							if (flag) {
+								let y = i + dy[k];
+								let x = j + dx[k];
+								if (y < lenArr && y >= 0 && x < lenArr && x >= 0) {
+									if (arr[i][j] < arr[y][x]) {
+										flag = false;
+									}
 								}
 							}
-							else {
-								++count;
-							}
+							else break;
 						}
-						if (count == 4) {
-							++ans;
-						}
+						if (flag) ++ans;
+						
 					}
 				}
 				return ans;
