@@ -6,17 +6,8 @@
     <body>
         <script>
             function solution(s) {
-				let sLen = s.length;
-				let sList = s.toLowerCase().split("");
-				for (let i = 0; i < sLen; ++i) {
-					if (sList[i] !== /[a-z]/ || sList[i] !== /[A-Z]/) {
-						sList.splice(i, 1);
-						--i;
-						--sLen;
-					}
-				}
-				
-				if (sList.reverse() === sList)
+				s = s.toLowerCase().replace(/[^a-z]/g, '');
+				if (s === s.split("").reverse().join(""))
 					return "YES";
 				return "NO";
             }
