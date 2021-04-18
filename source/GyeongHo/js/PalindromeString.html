@@ -5,12 +5,22 @@
     </head>
     <body>
         <script>
-            function solution(s){
-				const lowerS = s.toLowerCase();
-				if (lowerS === [...lowerS].reverse().join(""))
-					return "YES";
-				return "NO";
-            }
+				// function solution(s){
+				// const lowerS = s.toLowerCase();
+				// if (lowerS === [...lowerS].reverse().join(""))
+				// 	return "YES";
+				// return "NO";
+				// }
+			function solution(s) {
+				const sLen = s.length;
+				const S = s.toLowerCase();
+				for (let i = 0; i < sLen / 2; ++i) {
+					if (S[i] !== S[sLen - 1 - i]) {
+						return "NO";
+					}
+				}
+				return "YES";
+			}
             
             let str="goooG";
             console.log(solution(str));
