@@ -1,0 +1,32 @@
+<html>
+    <head>
+        <meta charset="UTF-8">
+        <title>출력결과</title>
+    </head>
+    <body>
+        <script>
+            function solution(s, t){
+				let sLen = s.length;
+				let d1 = sLen;
+				let d2 = sLen;
+				let distance = new Array(sLen).fill(Number.MAX_SAFE_INTEGER);
+				for (let i = 0; i < sLen; ++i) {
+					if (s[i] === t)
+						d1 = 0;
+					else
+						d1++;
+					distance[i] = Math.min(distance[i], d1);
+					if (s[sLen - 1 - i] === t)
+						d2 = 0;
+					else
+						d2++;
+					distance[sLen - 1 - i] = Math.min(distance[sLen - 1 - i], d2);
+				}
+				return distance;
+            }
+            
+            let str="teachermode";
+            console.log(solution(str, 'e'));
+        </script>
+    </body>
+</html>
