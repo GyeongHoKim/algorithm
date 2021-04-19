@@ -1,0 +1,29 @@
+<html>
+    <head>
+        <meta charset="UTF-8">
+        <title>출력결과</title>
+    </head>
+    <body>
+        <script>
+            function solution(n, arr){
+				arr.sort((a, b) => b - a);
+				let ans_max = 0;
+				let number = 0;
+				for (let num of arr) {
+					let ans = 0;
+					let numString = String(num);
+					for (let word of numString)
+						ans += parseInt(word);
+					if (ans > ans_max) {
+						ans_max = ans;
+						number = parseInt(numString);
+					}
+				}
+				return number;
+            }
+            
+            let arr=[128, 460, 603, 40, 521, 137, 123];
+            console.log(solution(7, arr));
+        </script>
+    </body>
+</html>
