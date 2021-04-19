@@ -1,0 +1,43 @@
+<html>
+    <head>
+        <meta charset="UTF-8">
+        <title>출력결과</title>
+    </head>
+    <body>
+        <script>
+            function solution(s){
+				let sList = s.split("");
+				let ans = [sList[0]];
+				let prev = sList[0];
+				let count = 1;
+				for (let i = 1; i < sList.length; ++i) {
+					if (i === sList.length - 1) {
+						if (sList[i] !== prev) {
+							ans.push(count);
+							ans.push(sList[i]);
+						}
+						else
+							ans.push(++count);
+						break;
+					}
+					if (sList[i] === prev) {
+						++count;
+					}
+					else {
+						if (count !== 1) { 
+							ans.push(count);
+						}
+						prev = sList[i];
+						ans.push(sList[i]);
+						count = 1;
+					}
+					console.log(count, i);
+				}
+				return ans.join("");
+            }
+            
+            let str="KKHSSSSSSSE";
+            console.log(solution(str));
+        </script>
+    </body>
+</html>
