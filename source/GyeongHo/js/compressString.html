@@ -6,34 +6,21 @@
     <body>
         <script>
             function solution(s){
-				let sList = s.split("");
-				let ans = [sList[0]];
-				let prev = sList[0];
-				let count = 1;
-				for (let i = 1; i < sList.length; ++i) {
-					if (i === sList.length - 1) {
-						if (sList[i] !== prev) {
-							ans.push(count);
-							ans.push(sList[i]);
-						}
-						else
-							ans.push(++count);
-						break;
-					}
-					if (sList[i] === prev) {
-						++count;
+				let answer = "";
+				let cnt = 1;
+				s += " ";
+				for (let i = 0; i < s.length - 1; ++i) {
+					if (s[i] === s[i + 1]) {
+						++cnt;
 					}
 					else {
-						if (count !== 1) { 
-							ans.push(count);
-						}
-						prev = sList[i];
-						ans.push(sList[i]);
-						count = 1;
+						answer += s[i];
+						if (cnt > 1)
+							answer += String(cnt);
+						cnt = 1;
 					}
-					console.log(count, i);
 				}
-				return ans.join("");
+				return answer;
             }
             
             let str="KKHSSSSSSSE";
