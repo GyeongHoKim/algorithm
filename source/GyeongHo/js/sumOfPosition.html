@@ -21,6 +21,34 @@
 				}
 				return number;
             }
+			
+			function solution2(arr) {
+				let answer = 0, max = 0;
+				for (let num of arr) {
+					let sum = 0, tmp = num;
+					while (tmp) {
+						sum += tmp % 10;
+						tmp = Math.floor(tmp / 10);
+					}
+					if (sum >= max && num > answer) {
+						max = sum;
+						answer = num;
+					}
+				}
+				return answer;
+			}
+			
+			function solution3(arr) {
+				let answer = 0, max = 0;
+				for (let num of arr) {
+					let sum = num.toString().split('').reduce((a, b) => a + Number(b), 0);
+					if (sum >= max && num > answer) {
+						max = sum;
+						answer = num;
+					}
+				}
+				return answer;
+			}
             
             let arr=[128, 460, 603, 40, 521, 137, 123];
             console.log(solution(7, arr));
