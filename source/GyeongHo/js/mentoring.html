@@ -1,0 +1,33 @@
+<html>
+	<head>
+		<meta charset="UTF-8" />
+		<title>출력결과</title>
+	</head>
+	<body>
+		<script>
+			function solution(arr) {
+				let count = 0;
+				let n = arr[0].length;
+				let m = arr.length;
+				for (let k = 0; k < n; ++k)
+					for (let j = 0; j < n; ++j) {
+						if (k == j) continue;
+						let flag = true;
+						for (let i = 0; i < m && flag; ++i) {
+							if (arr[i][k] > arr[i][j])
+								flag = false;
+						}
+						if (flag) ++count;
+					}
+				return count;
+			}
+
+			let arr = [
+				[3, 4, 1, 2],
+				[4, 3, 2, 1],
+				[3, 1, 4, 2],
+			];
+			console.log(solution(arr));
+		</script>
+	</body>
+</html>
