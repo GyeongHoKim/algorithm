@@ -13,9 +13,8 @@
 				while (i < arr.length) {
 					if (sum >= m) {
 						if (sum == m) ++cnt;
-						++i;
-						j = i;
-						sum = 0;
+						sum -= arr[i++];
+						continue;
 					}
 					if (j >= arr.length) return cnt;
 					sum += arr[j++];
