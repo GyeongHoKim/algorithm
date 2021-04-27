@@ -8,12 +8,14 @@
             function solution(k, arr){
 				let maxSum = 0;
 				let sumOfKdays = 0;
-				for (let i = 0; i < arr.length - k; ++i) {
-					for (let j = i; j < i + k; ++j) {
-						sumOfKdays += arr[j];
+				let lp = 0;
+				for (let rp = 0; rp < arr.length; ++rp) {
+					if (rp - lp + 1 <= k){
+						sumOfKdays += arr[rp];
+						continue;
 					}
 					maxSum = Math.max(maxSum, sumOfKdays);
-					sumOfKdays = 0;
+					sumOfKdays = sumOfKdays - arr[lp++] + arr[rp];
 				}
 				return maxSum;
             }
