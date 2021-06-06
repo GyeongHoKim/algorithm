@@ -9,3 +9,6 @@ goorm.manifest
 
 /source/bin/
 source/GyeongHo/bin/
+
+# Mac Finder #
+.DS_Store
