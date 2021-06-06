@@ -1,0 +1,29 @@
+<html>
+    <head>
+        <meta charset="UTF-8">
+        <title>출력결과</title>
+    </head>
+    <body>
+        <script>
+            function solution(s){
+				let answer = 0;
+				let maxCnt = 0;
+				let sH = new Map();
+				for (let word of s) {
+					if(sH.has(word))
+						sH.set(word, sH.get(word) + 1);
+					else
+						sH.set(word, 1);
+					if (sH.get(word) > maxCnt) {
+						answer = word;
+						maxCnt = sH.get(word);
+					}
+				}
+				return answer;
+            }
+
+            let str="BACBACCACCBDEDE";
+            console.log(solution(str));
+        </script>
+    </body>
+</html>

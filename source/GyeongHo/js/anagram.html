@@ -1,0 +1,35 @@
+<html>
+    <head>
+        <meta charset="UTF-8">
+        <title>출력결과</title>
+    </head>
+    <body>
+        <script>
+            function solution(str1, str2){
+				let words1 = new Map();
+				let words2 = new Map();
+				for (let word of str1) {
+					if (words1.has(word))
+						words1.set(word, words1.get(word) + 1);
+					else
+						words1.set(word, 1);
+				}
+				for (let word of str2) {
+					if (words2.has(word))
+						words2.set(word, words2.get(word) + 1);
+					else
+						words2.set(word, 1);
+				}
+				for (let key of words1) {
+					if (words2.get(key) != words1.get(key))
+						return "NO";
+				}
+				return "YES";
+            }
+            
+            let a="AbaAeCe";
+            let b="baeeACA";
+            console.log(solution(a, b));
+        </script>
+    </body>
+</html>

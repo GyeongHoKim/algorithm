@@ -1,0 +1,27 @@
+<html>
+    <head>
+        <meta charset="UTF-8">
+        <title>출력결과</title>
+    </head>
+    <body>
+        <script>
+            function solution(k, arr){
+				let maxSum = 0;
+				let sumOfKdays = 0;
+				let lp = 0;
+				for (let rp = 0; rp < arr.length; ++rp) {
+					if (rp - lp + 1 <= k){
+						sumOfKdays += arr[rp];
+						continue;
+					}
+					maxSum = Math.max(maxSum, sumOfKdays);
+					sumOfKdays = sumOfKdays - arr[lp++] + arr[rp];
+				}
+				return maxSum;
+            }
+            
+            let a=[12, 15, 11, 20, 25, 10, 20, 19, 13, 15];
+            console.log(solution(3, a));
+        </script>
+    </body>
+</html>
