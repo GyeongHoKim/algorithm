@@ -4,9 +4,8 @@ input = sys.stdin.readline
 n = int(input())
 coordinate = list(map(int, input().split()))
 
-for i in range(n):
-	count = 0
-	for j in range(n):
-		if coordinate[i] > coordinate[j]:
-			count += 1
-	print(count, end=' ')
+coordinateDict = set(coordinate)
+fuck = sorted(list(coordinateDict))
+fucking = {fuck[i] : i for i in range(len(fuck))}
+for c in coordinate:
+	print(fucking[c], end=' ')
