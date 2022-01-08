@@ -1,41 +1,32 @@
 #include <iostream>
-#include <vector>
 using namespace std;
 
-vector<int> v;
-bool chosen[9] = {false};
+int arr[8];
+int visited[9];
+int n, m;
 
-void permutation(int M, int N)
+void pick(int cnt)
 {
-	if(N == 0) {
-		for(vector<int>::iterator iter = v.begin(); iter < v.end(); ++iter) {
-			cout << *iter;
-			if(iter + 1 != v.end())
-				cout << ' ';
-		}
-		cout << endl;
+	if (cnt >= m) {
+		for (int i = 0; i < m; ++i)
+			cout << arr[i] << ' ';
+		cout << '\n';
 		return;
 	}
-
-	for(int i = 1; i < M + 1; ++i) {
-		if(!chosen[i]) {
-			chosen[i] = true;
-			v.push_back(i);
-			permutation(M, N - 1);
-			chosen[i] = false;
-			v.pop_back();
-		}
+	for (int i = 1; i <= n; ++i) {
+		if (visited[i])
+			continue;
+		arr[cnt] = i;
+		visited[i] = 1;
+		pick(cnt + 1);
+		visited[i] = 0;
 	}
-
-	return;
 }
 
 int main()
 {
-	int M, N;
-
-	cin >> M >> N;
-	permutation(M, N);
-	
+	ios::sync_with_stdio(0); cin.tie(0);
+	cin >> n >> m;
+	pick(0);
 	return 0;
 }
