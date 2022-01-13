@@ -2,6 +2,7 @@
 using namespace std;
 
 int arr[20];
+int N, S, cnt = 0;
 
 int fullySearch(int N, int S)
 {
@@ -18,9 +19,19 @@ int fullySearch(int N, int S)
 	return count;
 }
 
+void dfs(int cur, int total)
+{
+	if (cur >= N) {
+		if (total == S)
+			cnt++;
+		return;
+	}
+	dfs(cur + 1, total);
+	dfs(cur + 1, total + arr[cur]);
+}
+
 int main()
 {
-	int N, S;
 	cin >> N >> S;
 	for(int i = 0; i < N; ++i)
 		cin >> arr[i];
