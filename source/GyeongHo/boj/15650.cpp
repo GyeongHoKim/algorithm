@@ -1,39 +1,32 @@
 #include <iostream>
-#include <vector>
 using namespace std;
 
-vector<int> v;
-bool chosen[9] = {false};
+int arr[8];
+int visited[9];
+int n, m;
 
-void combination(int N, int M)
+void pick(int cnt, int prev)
 {
-	if(M == 0) {
-		for(vector<int>::iterator iter = v.begin(); iter < v.end(); ++iter)
-			cout << *iter << ' ';
-		cout << "\n";
+	if (cnt >= m) {
+		for (int i = 0; i < m; ++i)
+			cout << arr[i] << ' ';
+		cout << '\n';
 		return;
 	}
-
-	int index;
-	for(index = 8; index > 0; --index) {
-		if(chosen[index]) break;
+	for (int i = prev; i <= n; ++i) {
+		if (visited[i])
+			continue;
+		arr[cnt] = i;
+		visited[i] = 1;
+		pick(cnt + 1, i);
+		visited[i] = 0;
 	}
-
-	for(int i = index + 1; i < N + 1; ++i) {
-		chosen[i] = true;
-		v.push_back(i);
-		combination(N, M - 1);
-		chosen[i] = false;
-		v.pop_back();
-	}
-	return;
 }
 
 int main()
 {
-	int N, M;
-	cin >> N >> M;
-	combination(N, M);
-
+	ios::sync_with_stdio(0); cin.tie(0);
+	cin >> n >> m;
+	pick(0, 1);
 	return 0;
 }
