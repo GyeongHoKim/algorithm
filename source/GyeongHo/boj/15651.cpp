@@ -1,36 +1,28 @@
 #include <iostream>
-#include <vector>
 using namespace std;
 
-vector<int> v;
+int arr[7];
+int n, m;
 
-void permutation(int M, int N)
+void dfs(int cnt)
 {
-	if(N == 0) {
-		for(vector<int>::iterator iter = v.begin(); iter < v.end(); ++iter) {
-			cout << *iter;
-			if(iter + 1 != v.end())
-				cout << ' ';
-		}
-		cout << endl;
+	if (cnt >= m) {
+		for (int i = 0; i < m; ++i)
+			cout << arr[i] << ' ';
+		cout << '\n';
 		return;
 	}
-
-	for(int i = 1; i < M + 1; ++i) {
-			v.push_back(i);
-			permutation(M, N - 1);
-			v.pop_back();
+	for (int i = 1; i <= n; ++i) {
+		arr[cnt] = i;
+		dfs(cnt + 1);
 	}
-
-	return;
 }
 
 int main()
 {
-	int M, N;
-
-	cin >> M >> N;
-	permutation(M, N);
+	ios::sync_with_stdio(0); cin.tie(0);
+	cin >> n >> m;
+	dfs(0);
 	
 	return 0;
 }
