@@ -1,5 +1,3 @@
-package source.GyeongHo.boj;
-
 import java.io.*;
 import java.util.*;
 
