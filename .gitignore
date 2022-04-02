@@ -12,3 +12,7 @@ source/GyeongHo/bin/
 
 # Mac Finder #
 .DS_Store
+
+# 대회
+
+source/GyeongHo/showmethecode/
