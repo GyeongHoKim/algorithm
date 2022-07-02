@@ -2,7 +2,7 @@
 
 알고리즘 연습을 위한 리포.
 
-1. [BFS](./contents/BFS/BFS.md)
+1. [BFS](./contents/BFS/README.md)
 2. 순차적으로 추가예정
 
 # directories
