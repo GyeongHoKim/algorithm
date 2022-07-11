@@ -28,13 +28,13 @@ unsigned int factorial(unsigned int n)
 A를 B번 곱하는 것이 거듭제곱의 계산법이기는 한데 변수의 최댓값이 int의 최대값처럼 보이고 시간제한도 0.5초라서 O(N)으로는 안된다. 둘 씩 나눠서 들어가게 되면 O(logN)이 되니까
 
 $$
-a^b = a^{b/2} * a^{b/2} * a^{b\%2}
+a^b = a^{b/2} * a^{b/2} * a^{b \text{ mod } 2}
 $$
 
 이걸 이용해 보자. 그리고 주의할 점,
 
 $$
-(a * b) \% c = \{(a \%c) * (b \%c)\} \%c
+(a * b) \text{ mod } c = ((a \text{ mod } c) * (b \text{ mod } c)) \text{ mod } c
 $$
 
 모듈러 연산 법칙인데 각각에 대해서 모듈러하고 곱한 뒤에 다시 모듈러 해줘야 한다.
