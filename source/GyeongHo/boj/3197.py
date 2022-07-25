@@ -26,28 +26,8 @@ def set_time():
             max_time = time[ny][nx]
     return max_time
 
-def bfs(start: tuple, maps: list, mid: int, end : tuple) -> bool:
-    dirs = [(0,1),(0,-1),(1,0),(-1,0)]
-    queue = deque()
-    queue.append(start)
-    visited = [[False for _ in range(len(maps[0]))] for _ in range(len(maps))]
-    while queue:
-        y, x = queue.popleft()
-        visited[y][x] = True
-        for dy, dx in dirs:
-            ny, nx = y + dy, x + dx
-            if 0 <= ny < len(maps) and 0 <= nx < len(maps[0]) and not visited[ny][nx]:
-                visited[ny][nx] = True
-                # 백조1이 백조2 위치에 도착할 수 있는 경우
-                if ny == end[0] and nx == end[1]:
-                    return True
-                # 기준 시간초인 mid보다 작은 빙하는 녹아서 이동가능한 것으로 간주
-                if time[ny][nx] <= mid:
-                    queue.append((ny, nx))
-    return False
-
-def bfs2(day):
-    start_y, start_x, end_y, end_x = swan[0][0], swan[0][1], swan[1][0], swan[1][0]
+def bfs(day):
+    start_y, start_x, end_y, end_x = swan[0][0], swan[0][1], swan[1][0], swan[1][1]
     visited = [[False] * m for _ in range(n)]
     q = deque([(start_y, start_x)])
     visited[start_y][start_x] = True
@@ -84,8 +64,7 @@ days = max_time
 
 while min_time <= max_time:
     mid = (min_time + max_time) // 2
-    #if bfs2(mid):
-    if bfs(swan[0], lake, mid, swan[1]):
+    if bfs(mid):
         days = mid
         max_time = mid - 1
     else:
