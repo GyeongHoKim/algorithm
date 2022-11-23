@@ -10,6 +10,7 @@
 5. 시뮬레이션 
 6. DP
 7. Greedy
+8. [Hash](./contents/hash/README.md)
 
 # directories
 
