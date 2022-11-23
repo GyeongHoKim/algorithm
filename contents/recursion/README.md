@@ -1,23 +1,74 @@
-# 재귀
-
-# 재귀의 정의와 활용방법
+# Recurrences
 
 > 자신을 정의할 때 자기 자신을 재참조하는 방법을 의미
 > 
 
-단원명을 재귀라고 적긴했는데 DFS에서 쓰일 때도 있고, 퀵소트나 머지소트처럼 분할정복 개념 들어가는 알고리즘들이 재귀를 쓴다. 언뜻 생각해도 굉장히 많은 곳에 쓰일 것 같고 유형을 전부 적지는 못할 것 같다.
+# Solving recurrences
 
-```c
-unsigned int factorial(unsigned int n)
- {
-     if (n <= 1)
-         return 1;
-     else
-         return n * factorial(n-1);
- }
-```
+Merge sort를 통해 divide and conquer 알고리즘의 시간 복잡도가 재귀로 나타남을 배웠다. 어떻게 하면 재귀를 풀 수 있을까?
 
-위의 예시가 기본적인 재귀함수인데, 함수 시작할 때에 기저조건을 표시해야 하고 그 다음에 처리를 해주면 된다.
+1. Substitution method
+2. Recursion Tree method
+3. Master Theorem
+
+# Substitution method
+
+두 단계를 거친다.
+
+1. Guess the form of the solution
+2. Use mathematical induction to find the constants and show that the solution works
+
+가령, 
+
+$$
+T(n) = 2T(\left \lfloor n / 2 \right \rfloor) + n
+$$
+
+일 때, $T(n) = O(n\lg n)$라고 가정하는게 1단계이고 2단계는 상수를 결정한 후 가정이 맞음을 보여야 한다. 상수를 적당히 잡으면 $T(n) \le cn\lg n$이 되고 대입하면
+
+$$
+T(\left \lfloor n / 2 \right \rfloor) \le c\left \lfloor n / 2 \right \rfloor\lg (\left \lfloor n / 2 \right \rfloor)
+$$
+
+인데 이 부등호를 첫 번째 식에 대입하면,
+
+$$
+T(n) \le 2(c\left \lfloor n / 2 \right \rfloor\lg(\left \lfloor n / 2 \right \rfloor)) + n
+$$
+
+이다. 이걸 잘 정리해서 $T(n) \le cn\lg n$임을 보여주면 된다. 쭉 정리하면
+
+$$
+T(n) \le 2(c\left \lfloor n / 2 \right \rfloor\lg(\left \lfloor n / 2 \right \rfloor)) + n \\ \le cn\lg(n/2) + n \\ = cn\lg n - cn\lg 2 + n \\ = cn\lg n - cn + n \\ \le cn\lg n, c\ge 1
+$$
+
+으로 $c \ge 1$일때, $T(n) = O(n\lg n)$이다. 원래 $T(1) = 1$이라고 boundary condition을 정해주어야 하는데(위 공식상에서 $T(1) \le 0$임). 그냥 생략한다.
+
+## Substitution method로 알 수 없는 것
+
+보통 시간복잡도를 구하라고 하면, lower bound를 의미한다. 위 방식은 Lower bound를 알 수 없다. $O(n)$임을 가정하고 풀었을 때 참이라고 해서 그것이 lower bound인 것은 아니다.
+
+# Recursion Tree method
+
+![recursionTree](../recursionTree.png)
+
+각 층을 다 더하면 되는데, 맨 마지막 층은 다 더해도 n이 안되기 때문에 생략한다.
+
+# Master theorem
+
+다음과 같은 상황에서만 적용할 수 있다.
+
+$$
+T(n) = aT(n/b) + f(n)
+$$
+
+세 가지 경우로 나뉘는데
+
+1. $f(n)$이 $n^{\log_ba}$보다 작을 때: $T(n) = \Theta (n^{\log_ba})$
+2. $f(n)$이 $n^{\log_ba}$와 동일할 때: $T(n) = \Theta (n^{\log_ba}\lg n)$
+3. $f(n)$이 $n^{\log_ba}$보다 클 때: $T(n) = \Theta (f(n))$
+
+이다.
 
 # 유형1: 분할정복에 사용되는 경우
 
